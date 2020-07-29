@@ -1,0 +1,12 @@
+body {
+    background-color: #eeeeee;
+    color: #111111;
+}
+
+.bg-midnightblue {
+    background-color: midnightblue;
+}
+
+#logo{
+    height:50px;
+}
