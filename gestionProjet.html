@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <script src="https://kit.fontawesome.com/f5a5e67ec0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="img/ABIfavicon32x32.png">
     <meta name="creator" content="Yann BOYER">
     <meta name="description" content="ABI développe les outils informatiques dont vous avez besoin.">
@@ -55,12 +55,11 @@
 <main class="container-fluid min-vh-100 mt-4">
     <div class="row">
         <nav>
-            <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#"><img src="img/house-search-button.png" alt="bouton visualisation des projets" class="shadow-lg"> Accueil</a></li><!-- cette page -->
-                <li class="nav-item"><a class="nav-link" href="#"><img src="img/add-folder.png" alt="bouton ajout d'un nouveau projet" class="shadow-lg"> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
-                <li class="nav-item"><a class="nav-link" href="#"><img src="img/document.png" alt="bouton saisir nouvelle intervention class="shadow-lg"> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
-                <li class="nav-item"><a class="nav-link" href="#"><img src="img/new.png" alt="bouton ajouter un document à un collaborateur" class="shadow-lg"> Nouveau document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
-
+            <ul class="nav flex-column " >
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop-house"></i> Accueil</a></li><!-- cette page -->
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Nouveau document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
                 <!-- 
                 Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
                 Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>> 
@@ -116,7 +115,7 @@
                 </form>
 
                 
-                <div>
+                <div class="resumeProject">
 
                         <button type="button" class="btn btn-primary btn-lg btn-block mt-3 mb-3 shadow-lg" onclick='window.location.href="https://github.com/YanUbik/YB_mission2"' title="Cliquez pour accéder aux détails de l'intervention">
                             <div class="container-fluid">
@@ -129,8 +128,8 @@
                                     <p class="col-md-1">2.32.14</p>
                                     <p class="col-md-2">La roue du machin</p>                        
                                     <p class="col-md">user's story : entrer un nouvel utilisateur</p>
-                                    <p><img src="img/paste-text.png" alt=""></p>
-                                    <p><img src="img/new.png" alt=""></p>
+                                    <p><i class="fas fa-file-import"  style="color: rgb(255, 255, 255);"></i> <br>
+                                    <i class="fas fa-file-alt"  style="color: rgb(255, 255, 255);"></i> </p>
                                 </div>    
                             </div>
                         </button>
@@ -297,12 +296,6 @@
 
     </div>
     <!-- Footer Links -->
-    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-    Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-    Icons made by <a href="https://www.flaticon.com/free-icon/add-folder_2359086?term=new%20document&page=1&position=41" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>            </ul>
-    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
