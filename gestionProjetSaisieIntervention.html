@@ -57,9 +57,9 @@
     <div class="row">
         <nav>
             <ul class="nav flex-column " >
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop-house"></i> Accueil</a></li><!-- cette page -->
+                <li class="nav-item"><a class="nav-link" href="gestionProjet.html"><i class="fas fa-laptop-house"></i> Accueil</a></li><!-- cette page -->
                 <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
+                <li class="nav-item"><a class="nav-link" href="gestionProjetSaisieIntervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
                 <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Joindre document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
                 <!-- 
                 Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
@@ -83,7 +83,7 @@
                     <div class="row"> <!-- ligne intervenant, projet, user's stories -->
 
                         <div class="form-inline">
-                            <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1">
+                            <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1" required>
                                 <option value="" selected="selected">Collaborateurs</option>
                                 <option value="Jeremy Dugoin">Jeremy Dugoin</option>
                                 <option value="Archibald Merillon">Archibald Merillon</option>
@@ -93,8 +93,8 @@
                         </div>
 
                         <div class="form-inline">
-                            <select class="form-control shadow-lg" id="currentProject">
-                                <option value="currentProject" selected="selected">Projets</option>
+                            <select class="form-control shadow-lg" id="currentProject" required>
+                                <option value="" selected="selected">Projets</option>
                                 <option value="comptaSupermarche">Comptabilité Supermaché</option>
                                 <option value="gestionStockPain">Gestion du stock de pain</option>
                                 <option value="recettedepoisson">RecetteDePoisson.com</option>
@@ -117,7 +117,7 @@
                     <div class="row mt-4"> <!-- date intervention et date sprint -->
                         <div class="col-4">
                             <label for="interventionDate">Date de l'intervention :</label>
-                            <input type="date" id="interventionDate" name="interventionDate" class=" shadow-lg" required >    
+                            <input type="date" id="interventionDate" name="interventionDate" class="shadow-lg" required >    
                         </div>
                         <p>Sprint du ... au ...
                         </p>
