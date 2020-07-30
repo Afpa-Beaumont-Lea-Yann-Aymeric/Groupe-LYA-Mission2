@@ -1,0 +1,8 @@
+img {
+    height: 50px;
+    filter: opacity(0.8);
+}
+
+* {
+    font-family: serif;
+}
