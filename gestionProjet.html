@@ -13,7 +13,7 @@
     <meta name="robots" content="noimageindex"> <!-- pas d'indexation de l'image a partir de cette page pour google-->
     <meta name="robots" content="nocache"> <!-- pas de cache de la page pour bing -->
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap corps CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -42,7 +42,7 @@
     </div>
 
     <div class="text-white">
-        Eric Dupont - Responsable des études<br/>
+        Eric Dupont - <span id="workAs">Responsable des études</span><br/>
         <a href="deconnexion.html">Déconnexion</a>
     </div>
 
@@ -56,10 +56,10 @@
     <div class="row">
         <nav>
             <ul class="nav flex-column " >
-                <li class="nav-item"><a class="nav-link" href="gestionProjet.html"><i class="fas fa-laptop-house"></i> Accueil</a></li><!-- cette page -->
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
-                <li class="nav-item"><a class="nav-link" href="gestionProjetSaisieIntervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Nouveau document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
+                <li class="nav-item viewByUser"><a class="nav-link" href="gestionProjet.html"><i class="fas fa-laptop-house"></i> Gestion de projets</a></li><!-- cette page -->
+                <li class="nav-item viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
+                <li class="nav-item viewBySecTec"><a class="nav-link" href="gestionProjetSaisieIntervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
+                <li class="nav-item viewByDev viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Nouveau document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
                 <!-- 
                 Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
                 Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>> 
@@ -184,118 +184,9 @@
 <footer class="text-white bg-midnightblue">
 
     <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-
-        <!-- Grid row -->
-        <div class="row text-center">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Very long link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Very long link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Link 1</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 2</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-        </div>
-        <!-- Grid row -->
-
+    <div class="footer-copyright text-center py-3">
+        <a href="mailto:nullepart@abi.fr">Contacter le webmestre</a>
     </div>
-    <!-- Footer Links -->
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
@@ -310,5 +201,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+<script src="jsData/js/gesPro.js"></script>        
+
 </body>
 </html>
