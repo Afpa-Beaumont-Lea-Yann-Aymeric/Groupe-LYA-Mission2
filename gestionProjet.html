@@ -78,7 +78,7 @@
         <div class="col">
             <section>
                 <h2 class="text-center col-8 mb-4">Gestion de projets</h2>
-                <form action="" method="POST" name="showInterventionsOf" class="form-inline">
+                <form action="" method="POST" name="newIntervention" class="form-inline">
                     <div class="form-inline">
                         <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1">
                             <option value="Tous les collaborateurs" selected="selected">Tous les collaborateurs</option>
@@ -117,23 +117,24 @@
                 
                 <div class="resumeProject">
 
-                        <button type="button" class="btn btn-primary btn-lg btn-block mt-3 mb-3 shadow-lg" onclick='window.location.href="https://github.com/YanUbik/YB_mission2"' title="Cliquez pour accéder aux détails de l'intervention">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <p class="col-md-1">Release</p>
-                                    <p class="col-md-2">Projet</p>
-                                    <p class="col-md">Action de #Archibald Merillon# sur le Sprint du #12/01/2013 au 26/01/2013#</p>
-                                </div>    
-                                <div class="row">
-                                    <p class="col-md-1">2.32.14</p>
-                                    <p class="col-md-2">La roue du machin</p>                        
-                                    <p class="col-md">user's story : entrer un nouvel utilisateur</p>
-                                    <p><i class="fas fa-file-import"  style="color: rgb(255, 255, 255);"></i> <br>
-                                    <i class="fas fa-file-alt"  style="color: rgb(255, 255, 255);"></i> </p>
-                                </div>    
-                            </div>
-                        </button>
-                    
+                    <button type="button" class="btn btn-primary btn-lg btn-block mt-3 mb-3 shadow-lg" onclick='window.location.href="https://github.com/YanUbik/YB_mission2"' title="Cliquez pour accéder aux détails de l'intervention">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <p class="col-md-1">Release</p>
+                                <p class="col-md-2">Projet</p>
+                                <p class="col-md">Action de #Archibald Merillon# sur le Sprint du #12/01/2013 au 26/01/2013#</p>
+                            </div>    
+                            <div class="row">
+                                <p class="col-md-1">2.32.14</p>
+                                <p class="col-md-2">La roue du machin</p>                        
+                                <p class="col-md">user's story : entrer un nouvel utilisateur</p>
+                                <p><i class="fas fa-file-import"  style="color: rgb(255, 255, 255);"></i> <br>
+                                <i class="fas fa-file-alt"  style="color: rgb(255, 255, 255);"></i> </p>
+                            </div>    
+                        </div>
+                        <p id="test">test sur clients.js</p>
+                    </button>
+                
 
                 </div>
             </section>
@@ -201,7 +202,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-<script src="jsData/js/gesPro.js"></script>        
+<script src="jsData/data/clients.js"></script>
+<script src="jsData/data/collaborateurs.js"></script>       
+<script src="jsData/js/gesPro.js"></script> 
 
 </body>
 </html>

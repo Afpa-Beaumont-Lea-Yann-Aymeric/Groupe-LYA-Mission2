@@ -37,6 +37,9 @@ let comment = document.getElementById("comment");
 let submitForm = document.getElementById("submitForm");
 
 
+let test = document.getElementById("test");
+
+
 /* ------------------------------  traitement ------------------------------ */
 
 
@@ -76,6 +79,47 @@ console.log(currentUserStory);
 console.log(interventionDate);
 console.log(comment);
 
+console.log(collaborateurs)
+console.log(collaborateurs[0]);
+console.log(collaborateurs[0].fonctionCollabo);
+test.innerText = collaborateurs[0].fonctionCollabo;
+console.log(showInterventionsOf);
+console.log(showInterventionsOf.value);
+showInterventionsOf.value = collaborateurs[0].fonctionCollabo;
+
+
+console.log(showInterventionsOf.querySelectorAll("option"));
+console.log(showInterventionsOf.querySelectorAll("option")[1]);
+console.log(showInterventionsOf.querySelectorAll("option")[1].value);
+showInterventionsOf.querySelectorAll("option")[1].innerHTML = "test";
+
+
+/* remplir le menu deroulant collaborateur */
+/*
+pour chaque collaborateur de 0 a la longueurdutableau-1
+    acceder à l'objet collaborateur
+    acceder à fonction collaborateur
+    si fonctionCollabo === "développeur" alors
+        remplir le selecteur avec prenomCollabo + nomCollabo
+    fin de si
+pour suivant
+
+*/
+
+/* comment remplir le selecteur
+    acceder au champ option du selecteur
+    ajouter un champ option au selecteur html
+    ajouter le nom du collaborateur  
+    trier le nom par rapport aux noms précedents en le deplaçant dans le DOM
+*/
+
+/* comment trier le nom dans le dom
+    comparer la valeur de l'element/noeud à la valeur d'un élément précédent en utilisant le tri dichotomique
+*/
+
+
+
+
 /* -----  transfert des données du formulaire vers une page test ----- */
 /* 
 1. écouter bouton d'envoi
@@ -98,7 +142,7 @@ console.log(commentAboutIntervention);
 
 /**
  * @function allByView() 
- * @description fonction pour accès à toutes les données du tableau généré par getElementsByClassName().
+ * @description fonction pour accéder à toutes les données du tableau généré par getElementsByClassName(), pour le paramètre / la variable utilisée par cette fonction.
  * @param {String} viewBy fait référence à variable/élément à afficher ou cacher.
  * @param {String} viewOrHidden fait référence au statut "affiché" ou "caché" désiré pour de l'élément.
  */
@@ -117,4 +161,3 @@ console.log(commentAboutIntervention);
 function regExOnComment(stringToPurify) {
     return stringToPurify.replace(/[^a-z]/g, "OOO");
 }
-
