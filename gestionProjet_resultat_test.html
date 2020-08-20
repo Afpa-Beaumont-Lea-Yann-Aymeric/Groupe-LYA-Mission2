@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page de resultats - test gestion de projets</title>
-</head>
-<body>
-    <p>Ceci est une page pour tester les envois de formulaire</p>   
-</body>
+<html lang="fr">
+    <head>
+
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="img/ABIfavicon32x32.png">
+        <meta name="creator" content="Yann BOYER">
+        <meta name="description" content="ABI développe les outils informatiques dont vous avez besoin.">
+        <meta name="robots" content="noindex"> <!-- pas d'index par tous les moteurs de recherche -->
+        <meta name="robots" content="nofollow"> <!-- pas de suivi des liens présent dans la page par tous les moteurs de recherche-->
+        <meta name="robots" content="noarchive"> <!-- pas de cache de la page pour google et yahoo -->
+        <meta name="robots" content="nosnippet"> <!-- pas d'affichage de desription de cette page dans google -->
+        <meta name="robots" content="noimageindex"> <!-- pas d'indexation de l'image a partir de cette page pour google-->
+        <meta name="robots" content="nocache"> <!-- pas de cache de la page pour bing -->
+    
+        <!-- Bootstrap corps CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    
+        <!-- yann css -->
+        <link rel="stylesheet" href="css/yann_css.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-midnightblue">
+
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="img/logo-ABI.png" alt="logo Active Bretagne Informatique" style="filter:brightness(1.5)">
+            </a>
+        
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion commerciale <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion RH</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Gestion de projets</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="text-white">
+                Sophie Merebel - <span id="workAs">Secrétaire technique</span><br/>
+                <a href="deconnexion.html">Déconnexion</a>
+            </div>
+        
+        </nav>
+        
+        
+        <p>Ceci est une page pour tester les envois de formulaire</p>   
+        <p>collaborateur : <span id="resultatFormShowInterventionOf"></span></p>
+        <p>projet : <span id="resultatFormCurrentProjet"></span></p>
+        <p>user story<span id="resultatFormCurrentUserStory"></span></p>
+        <p>date : <span id="resultatFormInterventionDate"></span></p>
+        <p>commentaire : <span id="resultatFormComment"></span></p>
+
+        <script src="jsData/js/gesPro.js"></script>  
+        <script src="jsData/js/gesPro_resultat_test.js"></script>      
+
+    </body>
 </html>

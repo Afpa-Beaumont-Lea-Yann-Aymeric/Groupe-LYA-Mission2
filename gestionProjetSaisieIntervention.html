@@ -1,178 +1,181 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="img/ABIfavicon32x32.png">
-    <meta name="creator" content="Yann BOYER">
-    <meta name="description" content="ABI développe les outils informatiques dont vous avez besoin.">
-    <meta name="robots" content="noindex"> <!-- pas d'index par tous les moteurs de recherche -->
-    <meta name="robots" content="nofollow"> <!-- pas de suivi des liens présent dans la page par tous les moteurs de recherche-->
-    <meta name="robots" content="noarchive"> <!-- pas de cache de la page pour google et yahoo -->
-    <meta name="robots" content="nosnippet"> <!-- pas d'affichage de desription de cette page dans google -->
-    <meta name="robots" content="noimageindex"> <!-- pas d'indexation de l'image a partir de cette page pour google-->
-    <meta name="robots" content="nocache"> <!-- pas de cache de la page pour bing -->
+    <head>
 
-    <!-- Bootstrap corps CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="img/ABIfavicon32x32.png">
+        <meta name="creator" content="Yann BOYER">
+        <meta name="description" content="ABI développe les outils informatiques dont vous avez besoin.">
+        <meta name="robots" content="noindex"> <!-- pas d'index par tous les moteurs de recherche -->
+        <meta name="robots" content="nofollow"> <!-- pas de suivi des liens présent dans la page par tous les moteurs de recherche-->
+        <meta name="robots" content="noarchive"> <!-- pas de cache de la page pour google et yahoo -->
+        <meta name="robots" content="nosnippet"> <!-- pas d'affichage de desription de cette page dans google -->
+        <meta name="robots" content="noimageindex"> <!-- pas d'indexation de l'image a partir de cette page pour google-->
+        <meta name="robots" content="nocache"> <!-- pas de cache de la page pour bing -->
 
-    <!-- yann css -->
-    <link rel="stylesheet" href="css/yann_css.css">
-</head>
-<body>
-<nav class="navbar navbar-expand-md navbar-dark bg-midnightblue">
+        <!-- Bootstrap corps CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-    <a class="navbar-brand" href="index.html">
-        <img id="logo" src="img/logo-ABI.png" alt="logo Active Bretagne Informatique" style="filter:brightness(1.5)">
-    </a>
+        <!-- yann css -->
+        <link rel="stylesheet" href="css/yann_css.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-midnightblue">
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Gestion commerciale <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Gestion RH</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Gestion de projets</a>
-            </li>
-        </ul>
-    </div>
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="img/logo-ABI.png" alt="logo Active Bretagne Informatique" style="filter:brightness(1.5)">
+            </a>
 
-    <div class="text-white">
-        Sophie Merebel - <span id="workAs">Secrétaire technique</span><br/>
-        <a href="deconnexion.html">Déconnexion</a>
-    </div>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion commerciale <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion RH</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Gestion de projets</a>
+                    </li>
+                </ul>
+            </div>
 
-</nav>
+            <div class="text-white">
+                Sophie Merebel - <span id="workAs">Secrétaire technique</span><br/>
+                <a href="deconnexion.html">Déconnexion</a>
+            </div>
 
-<div class="container mt-5">
-
-</div>
-
-
-<main class="container-fluid min-vh-100 mt-4">
-    <div class="row">
-        <nav>
-            <ul class="nav flex-column " >
-                <li class="nav-item viewByUser"><a class="nav-link" href="gestionProjet.html"><i class="fas fa-laptop-house"></i> Gestion de projets</a></li><!-- cette page -->
-                <li class="nav-item viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
-                <li class="nav-item viewBySecTec"><a class="nav-link" href="gestionProjetSaisieIntervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
-                <li class="nav-item viewByDev viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Joindre document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
-            </ul>
-                <!-- 
-                Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
-                Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>> 
-                Lister les interventions d'un collaborateur >>> Responsable des études ou développeur >>> VOIR collaborateur + intervention >>> 
-                Ajouter un document émis par moi >>> Développeur  >>> AJOUT document + pers-connectée >>> 
-                Ajouter un document d'un collaborateur >>> Responsable des études  >>> AJOUT document + nom-collaborateur >>> 
-                Consulter l'activité d'un collaborateur >>> Utilisateur  >>> VOIR collaborateur + intervention >>> 
-                Consulter l'avancement d'un projet >>> Utilisateur  >>> VOIR projet >>> 
-                Consulter un document associé à un projet >>> Utilisateur  >>> VOIR projet + document >>> 
-                Saisir les interventions hebdomadaires des collaborateurs >>> Secrétariat technique  >>> VOIR projet + edition >>> 
-                Consulter l'activité d'un collaborateur >>> Responsable des études  >>> VOIR collaborateur + intervention >>> 
-                Création d'un projet >>> Responsable des études  >>> AJOUT nouveau projet  >>> 
-                -->
         </nav>
 
-        <div class="col">
-            <section>
-                <h2 class="text-center col-8 mb-4">Gestion de projets</h2>
-                <form action="" method="POST" name="showInterventionsOf" class="form-group ">
-                    <div class="row"> <!-- ligne intervenant, projet, user stories -->
+        <div class="container mt-5">
 
-                        <div class="form-inline">
-                            <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1" required>
-                                <option value="" selected="selected">Collaborateurs</option>
-                                <option value="Jeremy Dugoin">Jeremy Dugoin</option>
-                                <option value="Archibald Merillon">Archibald Merillon</option>
-                                <option value="Téophile Rédimeau">Téophile Rédimeau</option>
-                                <option value="Patricia de la Pouhaitise">Patricia de la Pouhaitise</option>
-                            </select>    
-                        </div>
-
-                        <div class="form-inline">
-                            <select class="form-control shadow-lg" id="currentProject" required>
-                                <option value="" selected="selected">Projets</option>
-                                <option value="comptaSupermarche">Comptabilité Supermaché</option>
-                                <option value="gestionStockPain">Gestion du stock de pain</option>
-                                <option value="recettedepoisson">RecetteDePoisson.com</option>
-                                <option value="calculetteLoto">Calculatrice du Loto</option>
-                            </select>
-                        </div>
-
-                        <div class="form-inline">
-                            <select class="form-control shadow-lg" id="currentUserStory" required>
-                                <option value="" selected="selected">User Stories</option>
-                                <option value="newUser">Ajouter un utilisateur</option>
-                                <option value="seeUserList">Voir la liste des utilisateurs</option>
-                                <option value="reduceImage">Reduire la taille de l'image</option>
-                                <option value="connectionPage">Page de connexion</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="row mt-4"> <!-- date intervention et date sprint -->
-                        <div class="col-4">
-                            <label for="interventionDate">Date de l'intervention :</label>
-                            <input type="date" id="interventionDate" name="interventionDate" class="shadow-lg" required >    
-                        </div>
-                        <p>Sprint du ... au ...
-                        </p>
-                    </div>
-
-                    
-                    <div class="form-group"> <!-- commentaires -->
-                        <label for="comment" class="col-3 mt-4">Commentaires :</label>
-                        <textarea class="form-control shadow-lg" id="comment" rows="8" required></textarea>
-                    </div>
-
-
-                    <div class="row justify-content-end"> <!-- enregistrer / annuler -->
-                        <div class="col-8">
-                            <button type="reset" class="btn btn-danger mb-3 shadow-lg">Annuler</button>
-                            <button type="submit" class="btn btn-success mb-3 shadow-lg">Enregistrer cette fiche</button>
-                            
-                        </div>
-                    </div>
-
-                </form>
-
-                
-            </section>
         </div>
-    </div>
 
 
-</main>
+        <main class="container-fluid min-vh-100 mt-4">
+            <div class="row">
+                <nav>
+                    <ul class="nav flex-column " >
+                        <li class="nav-item viewByUser"><a class="nav-link" href="gestionProjet.html"><i class="fas fa-laptop-house"></i> Gestion de projets</a></li><!-- cette page -->
+                        <li class="nav-item viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
+                        <li class="nav-item viewBySecTec"><a class="nav-link" href="gestionProjetSaisieIntervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
+                        <li class="nav-item viewByDev viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Joindre document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
+                    </ul>
+                        <!-- 
+                        Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
+                        Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>> 
+                        Lister les interventions d'un collaborateur >>> Responsable des études ou développeur >>> VOIR collaborateur + intervention >>> 
+                        Ajouter un document émis par moi >>> Développeur  >>> AJOUT document + pers-connectée >>> 
+                        Ajouter un document d'un collaborateur >>> Responsable des études  >>> AJOUT document + nom-collaborateur >>> 
+                        Consulter l'activité d'un collaborateur >>> Utilisateur  >>> VOIR collaborateur + intervention >>> 
+                        Consulter l'avancement d'un projet >>> Utilisateur  >>> VOIR projet >>> 
+                        Consulter un document associé à un projet >>> Utilisateur  >>> VOIR projet + document >>> 
+                        Saisir les interventions hebdomadaires des collaborateurs >>> Secrétariat technique  >>> VOIR projet + edition >>> 
+                        Consulter l'activité d'un collaborateur >>> Responsable des études  >>> VOIR collaborateur + intervention >>> 
+                        Création d'un projet >>> Responsable des études  >>> AJOUT nouveau projet  >>> 
+                        -->
+                </nav>
+
+                <div class="col">
+                    <section>
+                        <h2 class="text-center col-8 mb-4">Gestion de projets</h2>
+                        <form action="gestionProjet_resultat_test.html" method="POST" name="newIntervention" target="_blank" class="form-group ">
+                            <div class="row"> <!-- ligne intervenant, projet, user stories -->
+
+                                <div class="form-inline">
+                                    <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1" required>
+                                        <option value="" selected="selected">Collaborateurs</option>
+                                        <option value="Jeremy Dugoin">Jeremy Dugoin</option>
+                                        <option value="Archibald Merillon">Archibald Merillon</option>
+                                        <option value="Téophile Rédimeau">Téophile Rédimeau</option>
+                                        <option value="Patricia de la Pouhaitise">Patricia de la Pouhaitise</option>
+                                    </select>    
+                                </div>
+
+                                <div class="form-inline">
+                                    <select class="form-control shadow-lg" name="currentProject" id="currentProject" required>
+                                        <option value="" selected="selected">Projets</option>
+                                        <option value="Comptabilité Supermaché">Comptabilité Supermaché</option>
+                                        <option value="Gestion du stock de pain">Gestion du stock de pain</option>
+                                        <option value="RecetteDePoisson.com">RecetteDePoisson.com</option>
+                                        <option value="Calculatrice du Loto">Calculatrice du Loto</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-inline">
+                                    <select class="form-control shadow-lg" name="currentUserStory" id="currentUserStory" required>
+                                        <option value="" selected="selected">User Stories</option>
+                                        <option value="Ajouter un utilisateur">Ajouter un utilisateur</option>
+                                        <option value="Voir la liste des utilisateurs">Voir la liste des utilisateurs</option>
+                                        <option value="Reduire la taille de l'image">Reduire la taille de l'image</option>
+                                        <option value="Page de connexion">Page de connexion</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-4"> <!-- date intervention et date sprint -->
+                                <div class="col-4">
+                                    <label for="interventionDate">Date de l'intervention :</label>
+                                    <input type="date" name="interventionDate" id="interventionDate" class="shadow-lg" required >    
+                                </div>
+                                <p>Sprint du ... au ...
+                                </p>
+                            </div>
+
+                            
+                            <div class="form-group"> <!-- commentaires -->
+                                <label for="comment" class="col-3 mt-4">Commentaires :</label>
+                                <textarea class="form-control shadow-lg" name="comment" id="comment" rows="8" required></textarea>
+                            </div>
+
+
+                            <div class="row justify-content-end"> <!-- enregistrer / annuler -->
+                                <div class="col-8">
+                                    <button type="reset" class="btn btn-danger mb-3 shadow-lg">Annuler</button>
+                                    <button type="submit" class="btn btn-success mb-3 shadow-lg" id="submitForm" name="submitForm">Enregistrer cette fiche</button>
+                                    
+                                </div>
+                            </div>
+
+                        </form>
+
+                        
+                    </section>
+                </div>
+            </div>
+
+
+        </main>
 
 
 
-<!-- Footer -->
-<footer class="text-white bg-midnightblue">
+        <!-- Footer -->
+        <footer class="text-white bg-midnightblue">
 
-    <!-- Footer Links -->
-    <div class="footer-copyright text-center py-3">
-        <a href="mailto:nullepart@abi.fr">Contacter le webmestre</a>
-    </div>
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-    </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-<script src="jsData/js/gesPro.js"></script>        
-</body>
+            <!-- Footer Links -->
+            <div class="footer-copyright text-center py-3">
+                <a href="mailto:nullepart@abi.fr">Contacter le webmestre</a>
+            </div>
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                crossorigin="anonymous"></script>
+        <script src="jsData/js/gesPro.js"></script>   
+        <script src="jsData/js/gesProSaisieIntervention.js"></script> 
+
+
+    </body>
 </html>

@@ -3,27 +3,43 @@
 /* ------------------------------  variables ------------------------------ */
 
 
-/** @param {String} workAs fonction de la personne connectée au sein de l'entreprise. */
+/** @type {String} fonction de la personne connectée au sein de l'entreprise. */
 let workAs = document.getElementById("workAs").innerText;
 
-/** @param {String} viewByUser définit les éléments visible pour tous les utilisateurs connectés. */
+/** @type {object} définit les éléments visible pour tous les utilisateurs connectés. */
 let viewByUser = document.getElementsByClassName("viewByUser"); 
 
-/** @param {String} viewByRespEd définit les éléments visibles pour les responsables des études. */
+/** @type {object} définit les éléments visibles pour les responsables des études. */
 let viewByRespEd = document.getElementsByClassName("viewByRespEd");
 
-/** @param {String} viewBySecTec définit les éléments visibles pour les secrétaires techniques. */
+/** @type {object} définit les éléments visibles pour les secrétaires techniques. */
 let viewBySecTec = document.getElementsByClassName("viewBySecTec");
 
-/** @param {String} viewByDev définit les éléments visibles pour les développeurs. */
+/** @type {object} définit les éléments visibles pour les développeurs. */
 let viewByDev = document.getElementsByClassName("viewByDev");
 
-/** @param {String} commentAboutIntervention commmentaires saisis par la secrétaire technique concernant l'intervention d'un collaborateur */
-let commentAboutIntervention = document.getElementById("comment");
+/** @type {object} liste déroulante : sélection du collaborateur, par la secretaire technique, concernant la création d'une nouvelle intervention. */
+let showInterventionsOf = document.getElementById("showInterventionsOf");
 
+/** @type {object}  liste déroulante : sélection du projet, par la secretaire technique, concernant la création d'une nouvelle intervention. */
+let currentProject = document.getElementById("currentProject");
+
+/** @type {object}  liste déroulante : sélection de la user story, par la secretaire technique, concernant la création d'une nouvelle intervention. */
+let currentUserStory = document.getElementById("currentUserStory");
+
+/** @type {object}  liste déroulante : sélection de la date d'intervention, par la secretaire technique, concernant la création d'une nouvelle intervention. */
+let interventionDate = document.getElementById("interventionDate");
+
+/** @type {object} champ de commmentaires : commentaire sur l'intervention, saisi par la secrétaire technique, concernant la création d'une nouvelle intervention. */
+let comment = document.getElementById("comment");
+
+/** @type {object} bouton de soummission du formulaire, utilisé par la secrétaire technique, concernant la création d'une nouvelle intervention. */
+let submitForm = document.getElementById("submitForm");
 
 
 /* ------------------------------  traitement ------------------------------ */
+
+
 
 
 /* -----  faire disparaitre des éléments du menu en fonction de la personne connectée ----- */
@@ -52,6 +68,23 @@ if (workAs === "Développeur") {
     allByView(viewByDev, "list-item");
 }
 
+
+
+console.log(showInterventionsOf);
+console.log(currentProject);
+console.log(currentUserStory);
+console.log(interventionDate);
+console.log(comment);
+
+/* -----  transfert des données du formulaire vers une page test ----- */
+/* 
+1. écouter bouton d'envoi
+2. recuperer les données de formulaire
+3. envoi a la page test
+
+*/
+
+
 /* 
 tester le contenu de commentAboutintervention et remplacer les balises "<" et ">" par des espaces vides
 
@@ -64,9 +97,10 @@ console.log(commentAboutIntervention);
 /* ------------------------------  fonctions ------------------------------ */
 
 /**
- * @function allByView() fonction pour accès à toutes les données du tableau généré par getElementsByClassName()
- * @param {String} viewBy variable/élément à afficher ou cacher.
- * @param {String} viewOrHidden définit le statut "affiché" ou "caché" de l'élément.
+ * @function allByView() 
+ * @description fonction pour accès à toutes les données du tableau généré par getElementsByClassName().
+ * @param {String} viewBy fait référence à variable/élément à afficher ou cacher.
+ * @param {String} viewOrHidden fait référence au statut "affiché" ou "caché" désiré pour de l'élément.
  */
  function allByView(viewBy, viewOrHidden) {
     for (let index = 0; index < viewBy.length; index++) {
@@ -78,7 +112,7 @@ console.log(commentAboutIntervention);
 /**
  * @function regExOnComment()
  * @description fonction qui épure le contenu du texte saisi en commentaire pour ne pas pouvoir insérer de script. 
- * @param {String} stringToPurify correspond à la chaine de caractère à épurer pour éviter l'insertion de script.
+ * @param {String} stringToPurify fait référence à la chaine de caractère à épurer pour éviter l'insertion de script.
  */
 function regExOnComment(stringToPurify) {
     return stringToPurify.replace(/[^a-z]/g, "OOO");
