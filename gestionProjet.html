@@ -81,16 +81,12 @@
                 <form action="" method="POST" name="newIntervention" class="form-inline">
                     <div class="form-inline">
                         <select class="form-control shadow-lg" name="showInterventionsOf" id="showInterventionsOf" tabindex="1">
-                            <option value="Tous les collaborateurs" selected="selected">Tous les collaborateurs</option>
-                            <option value="Jeremy Dugoin">Jeremy Dugoin</option>
-                            <option value="Archibald Merillon">Archibald Merillon</option>
-                            <option value="Téophile Rédimeau">Téophile Rédimeau</option>
-                            <option value="Patricia de la Pouhaitise">Patricia de la Pouhaitise</option>
+                            <option value="Tous les développeurs" selected="selected">Tous les développeurs</option>
                         </select>    
                     </div>
                     <div class="form-inline">
                         <select class="form-control shadow-lg" id="currentProject">
-                            <option value="currentProject" selected="selected">Projets</option>
+                            <option value="currentProject" selected="selected">Tous les projets</option>
                             <option value="comptaSupermarche">Comptabilité Supermaché</option>
                             <option value="gestionStockPain">Gestion du stock de pain</option>
                             <option value="recettedepoisson">RecetteDePoisson.com</option>
@@ -100,7 +96,7 @@
 
                     <div class="form-inline">
                         <select class="form-control shadow-lg" id="ducument">
-                            <option value="currentDocument" selected="selected">Documents</option>
+                            <option value="currentDocument" selected="selected">Tous les documents</option>
                             <option value="text">Texte</option>
                             <option value="pdf">PDF</option>
                             <option value="html">HTML</option>
@@ -204,7 +200,8 @@
         crossorigin="anonymous"></script>
 <script src="jsData/data/clients.js"></script>
 <script src="jsData/data/collaborateurs.js"></script>       
-<script src="jsData/js/gesPro.js"></script> 
+<script src="jsData/js/gesPro_general.js"></script> 
+<script src="jsData/js/gestionProjet.js"></script>
 
 </body>
 </html>
