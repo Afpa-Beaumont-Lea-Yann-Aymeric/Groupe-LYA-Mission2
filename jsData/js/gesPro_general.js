@@ -53,7 +53,7 @@ if (workAs === "Développeur") {
     allByView(viewByDev, "list-item");
 }
 
-/* ---------- remplir le menu deroulant collaborateur ---------- */
+/* ---------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" ---------- */
 /* présent sur page projet et saisie intervention */
 
 for (let index = 0; index < collaborateurs.length; index++) {
@@ -109,9 +109,9 @@ for (let index = 0; index < collaborateurs.length; index++) {
 /*
 */
 
-/* ------------------------------ simulation de base de donnée Projets ABI ------------------------------ */
-let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
-let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master"]];
+/* ------------------------------ simulation de base de données Projets ABI ------------------------------ */
+let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
+let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master", "Développeur", "Responsable des études", "Commercial", "Technicien support", "Technico-commercial", "Secrétaire"]];
 // let nameFromDataProject = dataProject[0][1]; // indenter sur le premier chiffre
 // let nameInProjectName = listOfProjectsAndClients[0][0]; // indenter sur le premier chiffre
 //        let nameFromDataProject = dataProject[0][1];
@@ -125,7 +125,7 @@ for (let index = 0; index < projets.length; index++) {
     let moveComment = projets[index].commentaire;
     let moveClient = "string";
 
-    dataProject.push([moveIdUserStory,	moveProjectName,	"Client",	moveUserStory,	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico commercial",	"Secrétaire",	moveSprint,	moveComment]);
+    dataProject.push([moveIdUserStory,	moveProjectName,	"Client",	moveUserStory,	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	moveSprint,	moveComment]);
 };
 
 /* 
@@ -167,39 +167,37 @@ for (let index = 1; index < dataProject.length; index++) {
     }
 
 }
-// ajouter des scrum masters au tableau listOfProjectsAndClients
-/*{
-    let i = 0;
-    let i2 = 1;
-    let developerName = "string";
-    while (i2 < listOfProjectsAndClients.length) {
-        while (i < collaborateurs.length) {
-            if (collaborateurs[i].fonctionCollabo === "Scrum Master") {
-                developerName = collaborateurs[i].nomCollabo + " " + collaborateurs[i].prenomCollabo;
-                listOfProjectsAndClients[i2] = developerName;
-                i += 1;
-                i2 += 1;
-            } else {
-                if (i === collaborateurs.length - 1) {
-                    i = 0;
-                } else {
-                    i = i + 1;
-                }
-            }
-        }
-    
-    }
+// ajouter des scrum masters au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Scrum Master", 2);
 
-}
+// ajouter des développeurs au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Développeur", 3);
+
+// ajouter des responsables des études au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Responsable Etude", 4);
+
+// ajouter des commerciaux au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Commercial", 5);
+
+// ajouter des Technicien support au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Technicien support", 6);
+
+// ajouter des Technico-commercial au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Technico-commercial", 7);
+
+// ajouter des secrétaires au tableau listOfProjectsAndClients OK
+addCollabInLPAC("Secrétaire", 8);
+
+
 
 // ajouter les scrums master au tableau datatProject
 
 
-
 console.table(listOfProjectsAndClients);
-console.table(dataProject);
+console.log(listOfProjectsAndClients.length);
+// console.table(collaborateurs);
 
-*/
+
 
 /* ------------------------------ fonctions ------------------------------ */
 
@@ -209,8 +207,36 @@ console.table(dataProject);
  * @param {String} viewBy fait référence à variable/élément à afficher ou cacher.
  * @param {String} viewOrHidden fait référence au statut "affiché" ou "caché" désiré pour de l'élément.
  */
- function allByView(viewBy, viewOrHidden) {
+function allByView(viewBy, viewOrHidden) {
     for (let index = 0; index < viewBy.length; index++) {
         viewBy[index].style.display = viewOrHidden;
     }
+}
+
+
+/**
+ * @function addCollabInLPAC()
+ * @description fonction pour remplir le tableau "listOfProjectsAndClients" selon les fonctions exercée par les collaborateurs, depuis le fichier "collaborateurs.js".
+ * @param {string} searchedFunction fonction recherchée parmi les collaborateurs.
+ * @param {*} columnInLPAC index de la colonne alimentée dans le tableau "listOfProjectsAndClients".
+ */
+function addCollabInLPAC(searchedFunction, columnInLPAC) {
+    /** @type {number} index de ligne dans le tableau "listOfProjectsAndClients". */
+    let i = 1;
+    /** @type {number} index d'objet dans le tableau d'objets du fichier "collaborateurs.js" */
+    let i2 = 0;
+    while (i < listOfProjectsAndClients.length) {
+        if (collaborateurs[i2].fonctionCollabo === searchedFunction) {
+            let nom = collaborateurs[i2].nomCollabo + " " + collaborateurs[i2].prenomCollabo;
+            listOfProjectsAndClients[i][columnInLPAC] = nom;
+            i += 1;
+            i2 += 1;            
+        } else {        
+            i2 += 1;
+        }
+        if (i2 >= collaborateurs.length) {
+            i2 = 0;            
+        }  
+    }  
+
 }
