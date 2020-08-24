@@ -40,6 +40,8 @@ let submitForm = document.getElementById("submitForm");
 let test = document.getElementById("test");
 
 
+let devQty = 0;
+
 /* ------------------------------  traitement ------------------------------ */
 
 
@@ -105,6 +107,16 @@ pour chaque collaborateur de 0 a la longueurdutableau-1
 pour suivant
 
 */
+for (let index = 0; index < collaborateurs.length; index++) {
+    if (collaborateurs[index].fonctionCollabo === "Développeur") {
+        let prenomNom = collaborateurs[index].prenomCollabo + " " + collaborateurs[index].nomCollabo;
+        devQty += 1;
+        let option = document.createElement("option");
+        showInterventionsOf.appendChild(option).value = prenomNom;
+        showInterventionsOf.querySelectorAll("option")[index].textContent = prenomNom;
+    }
+}
+console.log(showInterventionsOf.querySelectorAll("option"));
 
 /* comment remplir le selecteur
     acceder au champ option du selecteur
@@ -112,6 +124,7 @@ pour suivant
     ajouter le nom du collaborateur  
     trier le nom par rapport aux noms précedents en le deplaçant dans le DOM
 */
+
 
 /* comment trier le nom dans le dom
     comparer la valeur de l'element/noeud à la valeur d'un élément précédent en utilisant le tri dichotomique
