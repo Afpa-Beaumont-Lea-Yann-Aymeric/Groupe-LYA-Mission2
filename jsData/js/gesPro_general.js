@@ -111,11 +111,12 @@ for (let index = 0; index < collaborateurs.length; index++) {
 
 /* ------------------------------ simulation de base de donnée Projets ABI ------------------------------ */
 let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
-let listOfProjectsAndClients = [["Nom du projet", "Client"]];
+let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master"]];
 // let nameFromDataProject = dataProject[0][1]; // indenter sur le premier chiffre
 // let nameInProjectName = listOfProjectsAndClients[0][0]; // indenter sur le premier chiffre
 //        let nameFromDataProject = dataProject[0][1];
 
+// remplir le tableau de simulation de BDD
 for (let index = 0; index < projets.length; index++) {
     let moveIdUserStory = projets[index].IdUserStory;
     let moveProjectName = projets[index].projet;
@@ -127,49 +128,78 @@ for (let index = 0; index < projets.length; index++) {
     dataProject.push([moveIdUserStory,	moveProjectName,	"Client",	moveUserStory,	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico commercial",	"Secrétaire",	moveSprint,	moveComment]);
 };
 
-/*
-
-console.table(dataProject);
+/* 
 */
+// remplir le tableau listOfProjectsAndClients OK
 for (let index = 1; index < dataProject.length; index++) {
-    let flagPushItem = false;
-    console.log(index + " -------------");
-    console.log("flagPushItem : " + flagPushItem);
-    
-    let index2 = 0;
-
-    let flagAllTested = false;
-
-    while (flagAllTested != true || flagPushItem != true) {
-        
-    
-
-        console.log("index2 : " + index2);
-        console.log("flagAllTested : " + flagAllTested);
-
-        if (dataProject[index][1] != listOfProjectsAndClients[index2][0]) {
-            flagPushItem = true;
-            console.log(dataProject[index][1] + " / " + listOfProjectsAndClients[index2][0]);
-            console.log("flagPushItem : " + flagPushItem);
-            console.log("test");
+    listOfProjectsAndClients.push([dataProject[index][1], "à remplir"]);
+}
+// supprimer les données multiples dans listOfProjectsAndClients OK
+for (let index = 1; index < listOfProjectsAndClients.length; index++) {
+    for (let index2 = index + 1; index2 < listOfProjectsAndClients.length; index2++) {
+        let itemSelected = listOfProjectsAndClients[index][0];
+        let itemToCompare = listOfProjectsAndClients[index2][0];
+        if (itemSelected === itemToCompare) {
+            listOfProjectsAndClients.splice([index2], 1);
+            index -= 1;
         }
-
-        if (index2 === listOfProjectsAndClients.length - 1) {
-            flagAllTested = true;
-            console.log("flagAllTested : " + flagAllTested);
-
-        }
-
-        if (flagPushItem === true && flagAllTested === true) {
-            console.log(flagPushItem + " + " + flagAllTested);
-            listOfProjectsAndClients.push(dataProject[index][1], "à compléter");
-        }
-        index2 += 1;
-        
-    }
+    }    
 }
 
+// ajouter des clients au tableau listOfProjectsAndClients OK
+for (let index = 1; index < listOfProjectsAndClients.length; index++) {
+    listOfProjectsAndClients[index][1] = clients[index].raisonSociale;
+}
+    
+// ajouter les clients au tableau dataProject OK
+for (let index = 1; index < dataProject.length; index++) {
+    let index2 = 0;
+    let flagPass = false;
+
+    while (flagPass === false || index2 === listOfProjectsAndClients.length) {
+        if ( dataProject[index][1] === listOfProjectsAndClients[index2][0]) {
+            dataProject[index][2] = listOfProjectsAndClients[index2][1];
+            flagPass = true;
+            index2 = 0;
+        } else {
+            index2 = index2 + 1;
+        }
+    }
+
+}
+// ajouter des scrum masters au tableau listOfProjectsAndClients
+/*{
+    let i = 0;
+    let i2 = 1;
+    let developerName = "string";
+    while (i2 < listOfProjectsAndClients.length) {
+        while (i < collaborateurs.length) {
+            if (collaborateurs[i].fonctionCollabo === "Scrum Master") {
+                developerName = collaborateurs[i].nomCollabo + " " + collaborateurs[i].prenomCollabo;
+                listOfProjectsAndClients[i2] = developerName;
+                i += 1;
+                i2 += 1;
+            } else {
+                if (i === collaborateurs.length - 1) {
+                    i = 0;
+                } else {
+                    i = i + 1;
+                }
+            }
+        }
+    
+    }
+
+}
+
+// ajouter les scrums master au tableau datatProject
+
+
+
 console.table(listOfProjectsAndClients);
+console.table(dataProject);
+
+*/
 
 /* ------------------------------ fonctions ------------------------------ */
 
