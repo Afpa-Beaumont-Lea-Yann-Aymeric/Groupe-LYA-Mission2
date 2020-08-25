@@ -53,78 +53,21 @@ if (workAs === "Développeur") {
     allByView(viewByDev, "list-item");
 }
 
-/* ---------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" ---------- */
-/* présent sur page projet et saisie intervention */
-
-for (let index = 0; index < collaborateurs.length; index++) {
-    if (collaborateurs[index].fonctionCollabo === "Développeur") {
-        /** @type {object} création d'un nouvel objet "option" dans la liste déroulante "développeurs". */
-        let option = document.createElement("option");
-
-        /** @type {object} objet "option" nouvellement créé dans la liste déroulante "développeurs". */
-        let newDev = interventionsOf.appendChild(option);
-
-        /** @type {string} concaténation du nom et prénom du développeur. */
-        let developerName = collaborateurs[index].nomCollabo + " " + collaborateurs[index].prenomCollabo;
-
-        /** @type {object} variable contenant la liste d'options du menu déroulant. provient de interventionsOf.querySelectorAll("option"). */
-        let optionDevList = interventionsOf.querySelectorAll("option");
-
-        /** @type {number} variable contenant le nombre d'items du menu déroulant. */
-        let indexOfNewOption = optionDevList.length-1;
-
-        /** @type {boolean} drapeau permettant d'indiquer si la variable itemToMove à trouvé sa place dans la liste d'options du menu déroulant. */
-        let flagCorrectlyPlaced = false;
-        
-        /** @type {string} variable contenant la valeur d'une option du menu déroulant. après son initialisation, le noeud HTML dont cette variable est originaire est trié et déplacé. */
-        let itemToMove = optionDevList[indexOfNewOption].value;
-        
-        /** @type {string} variable contenant la valeur d'une option du menu déroulant. cette variable sert à trier le menu d'options et correspond au noeud HTML précédent le noeud HTML itemToMove. */
-        let itemToCompare = optionDevList[indexOfNewOption-1].value;
-        
-        newDev.innerText = developerName; // innerText pour ne pas echapper les balises html, comme ca , si qqn veut inserer des balises c'est inefficace et ca se voit
-        newDev.value = developerName;
-        itemToMove = optionDevList[indexOfNewOption].value;
-        itemToCompare = optionDevList[indexOfNewOption-1].value;
-
-        while (flagCorrectlyPlaced === false) {
-            if (itemToMove < itemToCompare && itemToCompare != optionDevList[0].value) {
-                interventionsOf.insertBefore(optionDevList[indexOfNewOption], optionDevList[indexOfNewOption-1]);
-                optionDevList = interventionsOf.querySelectorAll("option");
-                flagCorrectlyPlaced = false;
-                indexOfNewOption -= 1;
-                itemToMove = optionDevList[indexOfNewOption].value;
-                itemToCompare = optionDevList[indexOfNewOption-1].value;
-            } else {
-                flagCorrectlyPlaced = true;
-                optionDevList = interventionsOf.querySelectorAll("option");
-            }    
-        }
-    }    
-}
-
-
-/* ------------------------------ simulation de base de données Projets ABI ------------------------------ */
+/* ---------------------------------------- simulation de base de données Projets ABI ---------------------------------------- */
 let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
 let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master", "Développeur", "Responsable des études", "Commercial", "Technicien support", "Technico-commercial", "Secrétaire"]];
-// let nameFromDataProject = dataProject[0][1]; // indenter sur le premier chiffre
-// let nameInProjectName = listOfProjectsAndClients[0][0]; // indenter sur le premier chiffre
-//        let nameFromDataProject = dataProject[0][1];
 
-// remplir le tableau de simulation de BDD
+// remplir le tableau de simulation de BDD OK
 for (let index = 0; index < projets.length; index++) {
     let moveIdUserStory = projets[index].IdUserStory;
     let moveProjectName = projets[index].projet;
     let moveUserStory = projets[index].userStory;
     let moveSprint = projets[index].sprint;
     let moveComment = projets[index].commentaire;
-    let moveClient = "string";
 
     dataProject.push([moveIdUserStory,	moveProjectName,	"Client",	moveUserStory,	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	moveSprint,	moveComment]);
 }
 
-/* 
-*/
 // remplir le tableau listOfProjectsAndClients OK
 for (let index = 1; index < dataProject.length; index++) {
     listOfProjectsAndClients.push([dataProject[index][1], "à remplir"]);
@@ -204,6 +147,61 @@ LPACtoDatatProject(7, 9);
 
 // ajouter les secrétaires au tableau datatProject OK
 LPACtoDatatProject(8, 10);
+
+
+/* -------------------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" -------------------- */
+/* ---------- présent sur page projet et saisie intervention ---------- */
+
+for (let index = 0; index < collaborateurs.length; index++) {
+    if (collaborateurs[index].fonctionCollabo === "Développeur") {
+        /** @type {object} création d'un nouvel objet "option" dans la liste déroulante "développeurs". */
+        let option = document.createElement("option");
+
+        /** @type {object} objet "option" nouvellement créé dans la liste déroulante "développeurs". */
+        let newDev = interventionsOf.appendChild(option);
+
+        /** @type {string} concaténation du nom et prénom du développeur. */
+        let developerName = collaborateurs[index].nomCollabo + " " + collaborateurs[index].prenomCollabo;
+
+        /** @type {object} variable contenant la liste d'options du menu déroulant. provient de interventionsOf.querySelectorAll("option"). */
+        let optionDevList = interventionsOf.querySelectorAll("option");
+
+        /** @type {number} variable contenant le nombre d'items du menu déroulant. */
+        let indexOfNewOption = optionDevList.length-1;
+
+        /** @type {boolean} drapeau permettant d'indiquer si la variable itemToMove à trouvé sa place dans la liste d'options du menu déroulant. */
+        let flagCorrectlyPlaced = false;
+        
+        /** @type {string} variable contenant la valeur d'une option du menu déroulant. après son initialisation, le noeud HTML dont cette variable est originaire est trié et déplacé. */
+        let itemToMove = optionDevList[indexOfNewOption].value;
+        
+        /** @type {string} variable contenant la valeur d'une option du menu déroulant. cette variable sert à trier le menu d'options et correspond au noeud HTML précédent le noeud HTML itemToMove. */
+        let itemToCompare = optionDevList[indexOfNewOption-1].value;
+        
+        newDev.innerText = developerName; // innerText pour ne pas echapper les balises html, comme ca , si qqn veut inserer des balises c'est inefficace et ca se voit
+        newDev.value = developerName;
+        itemToMove = optionDevList[indexOfNewOption].value;
+        itemToCompare = optionDevList[indexOfNewOption-1].value;
+
+        while (flagCorrectlyPlaced === false) {
+            if (itemToMove < itemToCompare && itemToCompare != optionDevList[0].value) {
+                interventionsOf.insertBefore(optionDevList[indexOfNewOption], optionDevList[indexOfNewOption-1]);
+                optionDevList = interventionsOf.querySelectorAll("option");
+                flagCorrectlyPlaced = false;
+                indexOfNewOption -= 1;
+                itemToMove = optionDevList[indexOfNewOption].value;
+                itemToCompare = optionDevList[indexOfNewOption-1].value;
+            } else {
+                flagCorrectlyPlaced = true;
+                optionDevList = interventionsOf.querySelectorAll("option");
+            }    
+        }
+    }    
+}
+
+
+/* -------------------- remplir le menu deroulant "projets" à partir du tableau listOfProjectesAndClients -------------------- */
+/* ---------- présent sur page projet et saisie intervention ---------- */
 
 
 console.table(dataProject);
