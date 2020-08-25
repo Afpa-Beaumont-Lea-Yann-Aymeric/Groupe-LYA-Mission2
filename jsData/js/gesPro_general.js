@@ -104,11 +104,6 @@ for (let index = 0; index < collaborateurs.length; index++) {
 }
 
 
-
-
-/*
-*/
-
 /* ------------------------------ simulation de base de données Projets ABI ------------------------------ */
 let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
 let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master", "Développeur", "Responsable des études", "Commercial", "Technicien support", "Technico-commercial", "Secrétaire"]];
@@ -126,7 +121,7 @@ for (let index = 0; index < projets.length; index++) {
     let moveClient = "string";
 
     dataProject.push([moveIdUserStory,	moveProjectName,	"Client",	moveUserStory,	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	moveSprint,	moveComment]);
-};
+}
 
 /* 
 */
@@ -167,6 +162,7 @@ for (let index = 1; index < dataProject.length; index++) {
     }
 
 }
+
 // ajouter des scrum masters au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Scrum Master", 2);
 
@@ -188,15 +184,30 @@ addCollabInLPAC("Technico-commercial", 7);
 // ajouter des secrétaires au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Secrétaire", 8);
 
+// ajouter les scrums master au tableau datatProject OK
+LPACtoDatatProject(2, 4);
+
+// ajouter les développeurs au tableau datatProject OK
+LPACtoDatatProject(3, 5);
+
+// ajouter les responsables des études au tableau datatProject OK
+LPACtoDatatProject(4, 6);
+
+// ajouter les commerciaux au tableau datatProject OK
+LPACtoDatatProject(5, 7);
+
+// ajouter les techniciens support au tableau datatProject OK
+LPACtoDatatProject(6, 8);
+
+// ajouter les technico commerciaux au tableau datatProject OK
+LPACtoDatatProject(7, 9);
+
+// ajouter les secrétaires au tableau datatProject OK
+LPACtoDatatProject(8, 10);
 
 
-// ajouter les scrums master au tableau datatProject
-
-
+console.table(dataProject);
 console.table(listOfProjectsAndClients);
-console.log(listOfProjectsAndClients.length);
-// console.table(collaborateurs);
-
 
 
 /* ------------------------------ fonctions ------------------------------ */
@@ -221,11 +232,11 @@ function allByView(viewBy, viewOrHidden) {
  * @param {*} columnInLPAC index de la colonne alimentée dans le tableau "listOfProjectsAndClients".
  */
 function addCollabInLPAC(searchedFunction, columnInLPAC) {
-    /** @type {number} index de ligne dans le tableau "listOfProjectsAndClients". */
+    /** @type {number} index de ligne dans le tableau "listOfProjectsAndClients". */ // tableau à remplir
     let i = 1;
-    /** @type {number} index d'objet dans le tableau d'objets du fichier "collaborateurs.js" */
+    /** @type {number} index d'objet dans le tableau d'objets du fichier "collaborateurs.js" */ // tableau de données
     let i2 = 0;
-    while (i < listOfProjectsAndClients.length) {
+    while (i < listOfProjectsAndClients.length) { // tableau à remplir
         if (collaborateurs[i2].fonctionCollabo === searchedFunction) {
             let nom = collaborateurs[i2].nomCollabo + " " + collaborateurs[i2].prenomCollabo;
             listOfProjectsAndClients[i][columnInLPAC] = nom;
@@ -239,4 +250,25 @@ function addCollabInLPAC(searchedFunction, columnInLPAC) {
         }  
     }  
 
+}
+
+/**
+ * @function LPACtoDatatProject
+ * @description fonction pour remplir le tableau "dataProject" depuis le tableau "listOfProjectAndClients".
+ * @param {number} columnInLPAC numéro de la colonne dans le tableau "listOfProjectsAndClients" dont les données vont être copiées dans le tableau "dataProject".
+ * @param {*} columnInDataProject numéro de la colonne dans le tableau "dataProject" qui va recevoir les données copiées depuis le tableau "listOfProjectsAndClients".
+ */
+function LPACtoDatatProject(columnInLPAC, columnInDataProject){
+    /** @type {number} index d'objet dans le tableau "dataProject". */ // tableau à remplir
+    let i = 1;
+    /** @type {number} index de ligne dans le tableau "listOfProjectsAndClients". */ // tableau de données
+    let i2 = 1;
+    while (i < dataProject.length) { // tableau à remplir
+        dataProject[i][columnInDataProject] = listOfProjectsAndClients[i2][columnInLPAC];
+        i += 1;
+        i2 += 1;
+        if (i2 >= listOfProjectsAndClients.length) {
+            i2 = 0;            
+        }  
+    }
 }
