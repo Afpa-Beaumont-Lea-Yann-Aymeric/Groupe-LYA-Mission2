@@ -266,7 +266,7 @@ function LPACtoDatatProject(columnInLPAC, columnInDataProject){
         i += 1;
         i2 += 1;
         if (i2 >= listOfProjectsAndClients.length) {
-            i2 = 0;            
+            i2 = 1;            
         }  
     }
 }
