@@ -1,5 +1,10 @@
 "use strict";
 
+/**
+ * @author Yann BOYER
+ */
+
+
 /* sur cette page se trouvent tous les éléments généraux/tranversaux aux diverses pages concernant la partie gestion de projets. */
 
 /* ------------------------------  variables générales ------------------------------ */
@@ -204,8 +209,6 @@ for (let index = 0; index < collaborateurs.length; index++) {
 /* ---------- présent sur page projet et saisie intervention ---------- */
 
 
-console.table(dataProject);
-console.table(listOfProjectsAndClients);
 
 
 /* ------------------------------ fonctions ------------------------------ */

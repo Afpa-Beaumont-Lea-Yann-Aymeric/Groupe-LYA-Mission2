@@ -1,6 +1,11 @@
 "use strict";
 
+/**
+ * @author Yann BOYER
+ */
+
 /* ------------------------------  variables page saisie intervention ------------------------------ */
+
 
 
 /** @type {object}  liste déroulante : sélection du projet, par la secretaire technique, concernant la création d'une nouvelle intervention. */
@@ -24,12 +29,16 @@ let submitForm = document.getElementById("submitForm");
  * @description affichage d'une alert pour visualisation des données envoyées lors des phases de développement.
  */
 submitForm.addEventListener('click', () => {
-    alert("affichage pour vérificiation lors du développement des données qui sont envoyées : " + interventionsOf.value + " " + currentProject.value + " " + currentUserStory.value + " " + interventionDate.value + " " + comment.value)
+    let regex = /[<>/{}]/gi;
+    if (regex.test(comment.value) === true) {
+        console.log("suppression des caratères interdits");
+        comment.value = comment.value.replace(regex, "");
+    }
+    console.log(comment.value);
 });
 
 
 /* ------------------------------  traitement ------------------------------ */
-
 
 
 
@@ -85,16 +94,6 @@ innerText
 
 */
 
-
-/* 
-tester le contenu de commentAboutintervention et remplacer les balises "<" et ">" par des espaces vides
-
-
-regExOnComment(commentAboutIntervention);
-console.log(commentAboutIntervention);
-
-*/
-
 /* ------------------------------  fonctions ------------------------------ */
 
 /**
@@ -115,6 +114,15 @@ console.log(commentAboutIntervention);
  * @description fonction qui épure le contenu du texte saisi en commentaire pour ne pas pouvoir insérer de script. 
  * @param {String} stringToPurify fait référence à la chaine de caractère à épurer pour éviter l'insertion de script.
  */
+
+ /*
 function regExOnComment(stringToPurify) {
-    return stringToPurify.replace(/[^a-z]/g, "OOO");
+
+    console.log(stringToPurify);
+    
+    let regex = /[<>/{}]/gi;
+    let result = stringToPurify.replace(regex, " !!! caractère interdit !!! ");
+    console.log(result);
+    return result;
 }
+*/
