@@ -28,13 +28,17 @@ let viewByDev = document.getElementsByClassName("viewByDev");
 /** @type {object} liste déroulante : sélection du collaborateur, par la secretaire technique, concernant la création d'une nouvelle intervention. */
 let interventionsOf = document.getElementById("interventionsOf");
 
+/** @type {object}  liste déroulante : sélection du projet, par la secretaire technique, concernant la création d'une nouvelle intervention. */
+let currentProject = document.getElementById("currentProject");
 
 let test = document.getElementById("test");
 
 
-/* ------------------------------  traitement ------------------------------ */
+/* ------------------------------  traitement ------------------------------ 
 
-
+if (optionDevList.value === "Bernard Françoise") {
+    currentProject.display = "none";
+}*/
 /* -----  faire disparaitre des éléments du menu en fonction de la personne connectée ----- */
 
 allByView(viewByUser, "none");
@@ -154,7 +158,7 @@ LPACtoDatatProject(7, 9);
 LPACtoDatatProject(8, 10);
 
 
-/* -------------------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" -------------------- */
+/* -------------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" -------------- */
 /* ---------- présent sur page projet et saisie intervention ---------- */
 
 for (let index = 0; index < collaborateurs.length; index++) {
@@ -205,10 +209,9 @@ for (let index = 0; index < collaborateurs.length; index++) {
 }
 
 
-/* -------------------- remplir le menu deroulant "projets" à partir du tableau listOfProjectesAndClients -------------------- */
+/* ---------------- remplir le menu deroulant "projets" à partir du tableau listOfProjectsAndClients ---------------- */
 /* ---------- présent sur page projet et saisie intervention ---------- */
-
-
+addOptionInScrollingMenu(listOfProjectsAndClients, currentProject, 0)
 
 
 /* ------------------------------ fonctions ------------------------------ */
@@ -228,7 +231,7 @@ function allByView(viewBy, viewOrHidden) {
 
 /**
  * @function addCollabInLPAC()
- * @description fonction pour remplir le tableau "listOfProjectsAndClients" selon les fonctions exercée par les collaborateurs, depuis le fichier "collaborateurs.js".
+ * @description fonction pour remplir le tableau "listOfProjectsAndClients" selon les métiers exercés par les collaborateurs, depuis le fichier "collaborateurs.js".
  * @param {string} searchedFunction fonction recherchée parmi les collaborateurs.
  * @param {*} columnInLPAC index de la colonne alimentée dans le tableau "listOfProjectsAndClients".
  */
@@ -271,5 +274,37 @@ function LPACtoDatatProject(columnInLPAC, columnInDataProject){
         if (i2 >= listOfProjectsAndClients.length) {
             i2 = 1;            
         }  
+    }
+}
+
+
+/**
+ * @function addOptionInScrollingMenu()
+ * @description fonction qui récupère dans un tableau et classe par ordre alphabétique les noms des options que l'on souhaite mettre dans un menu déroulant d'une page HTML.
+ * @param {object} tab se réfère au tableau d'où viennent les données pour remplir le menu.
+ * @param {number} columnInTab indique l'index de colonne où chercher les noms des options.
+ * @param {objet} menu indique le menu à remplir dans la page HTML.
+ */
+function addOptionInScrollingMenu(tab, menu, columnInTab) {
+
+    for (let index = 1; index < tab.length; index++) {
+        let option = document.createElement("OPTION");
+        let flagCorrectlyPlaced = false;
+        let indexOfItem = 0;
+
+        option.textContent = tab[index][columnInTab];
+        menu.appendChild(option);
+        indexOfItem = menu.length - 1;
+
+        while (flagCorrectlyPlaced === false) {
+            if (menu[indexOfItem - 1].value === menu[0].value) {
+                flagCorrectlyPlaced = true;
+            } else if (menu[indexOfItem].value < menu[indexOfItem - 1].value) {
+                menu.insertBefore(menu[indexOfItem], menu[indexOfItem - 1]);
+                indexOfItem -= 1;
+            } else {
+                flagCorrectlyPlaced = true;
+            }
+        }
     }
 }

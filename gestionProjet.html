@@ -87,10 +87,6 @@
                     <div class="form-inline">
                         <select class="form-control shadow-lg" id="currentProject">
                             <option value="currentProject" selected="selected">Tous les projets</option>
-                            <option value="comptaSupermarche">Comptabilité Supermaché</option>
-                            <option value="gestionStockPain">Gestion du stock de pain</option>
-                            <option value="recettedepoisson">RecetteDePoisson.com</option>
-                            <option value="calculetteLoto">Calculatrice du Loto</option>
                         </select>
                     </div>
 
@@ -115,8 +111,9 @@
                 
 
             </section>
-            <table class="table table-hover">
-                <thead>
+            <table class="table table-hover" >
+                <a href="#">
+                <thead id="tableOfInterventions">
                     <tr>
                         <th class="text-center" colspan="13">base de donnée des projets ABI</th>
                     </tr>
@@ -127,12 +124,12 @@
                         <th class="text-center">Développeur</th>
                         <th class="text-center">Sprint</th>
                     </tr>
-                </thead>
+                </thead></a>
                 <tbody>
                 </tbody>
                 
             </table>
-            <section class="alert alert-primary">
+            <section class="alert alert-primary" id="moreDetail">
                 <div id="interventionDetail">
                     <ul>
                         <li >ID : </li>

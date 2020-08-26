@@ -37,14 +37,25 @@ for (let index = 1; index < dataProject.length; index++) {
 }
 
 
-/* 
-tester le contenu de commentAboutintervention et remplacer les balises "<" et ">" par des espaces vides
+let table = document.getElementById("tableOfInterventions");
+let infoFor = document.getElementsByTagName("tr");
+let moreDetail = document.getElementById("moreDetail");
+console.log(infoFor);
+console.log(infoFor.length);
+/*  */
+moreDetail.style.display = "none";
+for (let index = 2; index < infoFor.length; index++) {
+
+    
+infoFor[index].addEventListener('click', () => {
+        moreDetail.style.display = "block";
+    })
+}
 
 
-regExOnComment(commentAboutIntervention);
-console.log(commentAboutIntervention);
-
-*/
+moreDetail.addEventListener('click', () => {
+    moreDetail.style.display = "none";
+})
 
 /* ------------------------------  fonctions ------------------------------ */
 

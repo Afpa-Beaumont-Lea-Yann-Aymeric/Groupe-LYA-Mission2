@@ -6,13 +6,15 @@
 
 
  let msg = location.search;
- let resultatFormShowInterventionOf = document.getElementById(resultatFormShowInterventionOf);
- let resultatFormCurrentProjet = document.getElementById(resultatFormCurrentProjet);
- let resultatFormCurrentUserStory = document.getElementById(resultatFormCurrentUserStory);
- let resultatFormInterventionDate = document.getElementById(resultatFormInterventionDate);
- let resultatFormComment = document.getElementById(resultatFormComment);
+ var resultatFormShowInterventionOf = document.getElementById(resultatFormShowInterventionOf);
+ var resultatFormCurrentProjet = document.getElementById(resultatFormCurrentProjet);
+ var resultatFormCurrentUserStory = document.getElementById(resultatFormCurrentUserStory);
+ var resultatFormInterventionDate = document.getElementById(resultatFormInterventionDate);
+ var resultatFormComment = document.getElementById(resultatFormComment);
 
+ resultatFormShowInterventionOf.innerText = "tre" ;
  console.log(msg);
+ console.log(resultatFormComment);
 
 /*
  <p>Ceci est une page pour tester les envois de formulaire</p>   
@@ -21,6 +23,5 @@
  <p>user story<span id="resultatFormCurrentUserStory"></span></p>
  <p>date : <span id="resultatFormInterventionDate"></span></p>
  <p>commentaire : <span id="resultatFormComment"></span></p>
-*/
 
-resultatFormShowInterventionOf.value = "test";
+*/
