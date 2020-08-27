@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Activité Bretagne Informatique</title>
+    <meta name="description" content="Un texte décrivant">
+    <script src="https://kit.fontawesome.com/f5a5e67ec0.js" crossorigin="anonymous"></script>
+
+    <title>Starter Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-midnightblue text-white row">
+    <div class="col-1">
+        <a class="navbar-brand" href="index.html">
+            <img id="logo" src="img/logo-ABI.png" alt="">
+        </a>
+    </div>
+    <div class="col">
+        <div class="row-flex">
+            <h1 class="d-flex justify-content-center">Active Bretagne Informatique</h1>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="gestion-commerciale.html">Gestion commerciale <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gestion-rh.html">Gestion RH</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gestion-projet.html">Gestion de projets</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form class="col-2 m-2">
+        <div class="form-group-sm-m">
+            <input type="email" class="form-control form-control-sm" placeholder="Email">
+        </div>
+        <div class="form-group-sm-m">
+            <input type="password" class="form-control form-control-sm" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Se connecter</button>
+    </form>
+</nav>
+<div class="container border border-dark">
+    <h1 class="text-center m-5 "> Contacter nous</h1>
+    <form action="" id="contact">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Prénom</label>
+                <input type="text" class="form-control" name="firstname" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Nom</label>
+                <input type="text" class="form-control" name="lastname" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" required>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+</div>
+
+
+</form>
+
+
+<footer class="text-white bg-midnightblue">
+    <div class="container text-center text-md-left">
+        <div class="row text-center">
+            <div class="col-9"></div>
+            <div class="col-3 mx-auto">
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Liens</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="contact.html">Contactez-nous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="index.html"> Active Bretagne Informatique</a>
+    </div>
+</footer>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/contact.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,70 @@
 body {
     background-color: #eeeeee;
-    color: #111111;
 }
 
 .bg-midnightblue {
     background-color: midnightblue;
 }
 
-#logo{
-    height:50px;
+#logo {
+    height: 50px;
+    filter: brightness(1.75);
+}
+
+a:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+.form-group-sm-m {
+    margin-bottom: 0.2rem;
+}
+
+#listCollab tbody tr td:not(:last-child):hover {
+    cursor: pointer;
+}
+
+.idClient {
+    background-color:lightblue;
+    font-size: 18px;
+}
+
+.raisonsocial {
+    background-color: lightsteelblue;
+    font-size: 18px;
+}
+
+.siret {
+    background-color: lightskyblue;
+    font-size: 18px;
+}
+
+.ville {
+    background-color: lightsalmon;
+    font-size: 18px;
+}
+
+.zip {
+    background-color:lightcoral ;
+    font-size: 18px;
+}
+
+.address {
+    background-color: lightpink;
+    font-size: 18px;
+}
+
+.pays {
+    background-color: lightgreen;
+    font-size: 18px;
+}
+
+.activite {
+    background-color: lightseagreen;
+    font-size: 18px;
+}
+
+.action {
+    background-color: lightgrey;
+    font-size: 18px;
 }

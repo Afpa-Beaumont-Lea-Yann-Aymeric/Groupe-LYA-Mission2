@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Activité Bretagne Informatique</title>
+    <meta name="description" content="Un texte décrivant">
+    <script src="https://kit.fontawesome.com/f5a5e67ec0.js" crossorigin="anonymous"></script>
+
+    <title>Starter Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-midnightblue text-white row">
+    <div class="col-1">
+        <a class="navbar-brand" href="index.html">
+            <img id="logo" src="img/logo-ABI.png" alt="">
+        </a>
+    </div>
+    <div class="col">
+        <div class="row-flex">
+            <h1 class="d-flex justify-content-center">Active Bretagne Informatique</h1>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="gestion-commerciale.html">Gestion commerciale</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gestion-rh.html">Gestion RH</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gestion-projet.html">Gestion de projets</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-white">
+        Jessica Lopez - Utilisateur<br/>
+        <a href="deconnexion.html">Déconnexion</a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h1 class="text-center m-5 "> Lister les clients</h1>
+    <div class="row">
+        <div class="col-3"></div>
+        <form action="" class="col-6">
+            <div class="input-group mb-3 ">
+                <input type="text" class="form-control" placeholder="Rechercher un client">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon2"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <div class="col-3"></div>
+    </div>
+    <table id="listcustomers" class="table">
+        <thead>
+        <tr>
+            <th class="idClient">idClient</th>
+            <th class="raisonsocial">Raison Social</th>
+            <th class="siret">Siret</th>
+            <th class="ville">Ville</th>
+            <th class="zip">CodePostal</th>
+            <th class="address">Adresse</th>
+            <th class="pays">Pays</th>
+            <th class="activite">Activité</th>
+            <th class="action">Action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end mr-3 mb-3">
+        <a href="ajout-client.html" class="btn btn-primary mr-3 ">Ajouter un client</a>
+    </div>
+</div>
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+
+<footer class="text-white bg-midnightblue">
+    <div class="container text-center text-md-left">
+        <div class="row text-center">
+            <div class="col-9"></div>
+            <div class="col-3 mx-auto">
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Liens</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="contact.html">Contactez-nous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="index.html"> Active Bretagne Informatique</a>
+    </div>
+</footer>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="data/customers.js"></script>
+<script src="js/gestion-commerciale/customers.js"></script>
+
+</body>
+
+</html>
