@@ -5,10 +5,10 @@
  */
 
 
-/* ------------------------------  variables page gestion de projets ------------------------------ */
+/* ------------------------------  variables page gestion de projets ------------------------------ 
 
 console.table(dataProject);
-
+*/
 /* ------------------------------  traitement ------------------------------ */
 
 /* -----  afficher le tableau des interventions des développeurs ----- */
@@ -62,7 +62,6 @@ for (let index = 1; index < dataProject.length; index++) {
     row3.style.display = "none";
 
     row.addEventListener("mouseenter", () => {
-        row.style.boxShadow = "0px 0px 20px 5px black";
         row.style.backgroundColor = "blueviolet";
         row.style.color = "whitesmoke";
     });
@@ -74,7 +73,6 @@ for (let index = 1; index < dataProject.length; index++) {
         if (row2.style.display === "block") {
             row.style.backgroundColor = "blueviolet";
             row.style.color = "whitesmoke";
-    
         }
 
     });
@@ -113,8 +111,50 @@ for (let index = 1; index < dataProject.length; index++) {
     row3.style.backgroundColor = "blueviolet";
     row3.style.color = "whitesmoke";
 }
+
+
+
+
+
+
 /*
+interventionsOf.addEventListener("change", () => { // indexOfCellForSearch 3
+    
+    let optionSelected = interventionsOf.value;
+    if (optionSelected === interventionsOf[0].value) {
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            console.log("----- affiche tout " + allTR[index]);
+            allTR[index].style.display = "block";
+        }
+        
+    } else {
+        
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            let allTD = allTR[index].querySelectorAll("td");
+            let searchedOption = allTD[3].innerText; // index : 3
+            allTR[index].style.display = "block";
+            console.log("-----" + allTR[index].querySelectorAll("td"));
+            if (searchedOption === optionSelected) {
+                allTR[index].style.display = "none";
+                console.log("OK");
+            }
+        }
+    }
+
+});
+
 */
+
+currentProject.addEventListener("change", menuSelected);
+interventionsOf.addEventListener("change", menuSelected);
+/*
+menuSelected(interventionsOf, 3);
+
+menuSelected(currentProject, 0);
+*/
+
 /* ------------------------------  fonctions ------------------------------ */
 
 /**
@@ -126,6 +166,94 @@ for (let index = 1; index < dataProject.length; index++) {
  function allByView(viewBy, viewOrHidden) {
     for (let index = 0; index < viewBy.length; index++) {
         viewBy[index].style.display = viewOrHidden;
+    }
+}
+
+
+
+/**
+ * @function menuSelected()
+ * @description fonction pour trier le tableau HTML selon les éléments séléctionnés dans le menu déroulant.
+ * @param {string} menu fait référence au menu qui servira à laire le tri.
+ * @param {*} indexOfCellForSearch indique l'index de colonne (du tableau HTML) sur lequel le tri sera fait.
+ */
+/*
+function menuSelected(menu, indexOfCellForSearch) {
+    
+    menu.addEventListener("change", () => {
+        let optionSelected = menu.value;
+        if (optionSelected === menu[0].value) { // afficher tout
+            for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+                let allTR = tab.querySelectorAll("tr");
+                console.log("----- affiche tout " + allTR[index]);
+                allTR[index].style.display = "block";
+            }
+        } else {
+            for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+                let allTR = tab.querySelectorAll("tr");
+                let allTD = allTR[index].querySelectorAll("td");
+                let searchedOption = allTD[indexOfCellForSearch].innerText; // index : 3
+                console.log("-----" + allTR[index].querySelectorAll("td"));
+                allTR[index].style.display = "none";
+                if (searchedOption === optionSelected) {
+                    allTR[index].style.display = "block";
+                    console.log("OK");
+                }
+            }
+        }
+    });
+}
+*/
+function menuSelected() {
+    
+    let interventionsOfSelected = interventionsOf.value;
+    let currentProjectSelected = currentProject.value;
+    console.log("---------------------");
+    console.log(interventionsOfSelected);
+    console.log(currentProjectSelected);
+    if (currentProjectSelected === currentProject[0].value && interventionsOfSelected === interventionsOf[0].value) { // afficher tout
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            allTR[index].style.display = "block";
+        }
+        console.log("----- affiche tout ");
+    } else if (currentProjectSelected === currentProject[0].value && interventionsOfSelected != interventionsOf[0].value) {
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            let allTD = allTR[index].querySelectorAll("td");
+            let searchedPerson = allTD[3].innerText; // index : 3
+            allTR[index].style.display = "none";
+            if (searchedPerson === interventionsOfSelected) {
+                allTR[index].style.display = "block";
+                console.log("OK");
+            }
+        }
+    } else if (currentProjectSelected != currentProject[0].value && interventionsOfSelected === interventionsOf[0].value) {
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            let allTD = allTR[index].querySelectorAll("td");
+            let searchedProject = allTD[0].innerText; // index : 0
+            allTR[index].style.display = "none";
+            if (searchedProject === currentProjectSelected) {
+                allTR[index].style.display = "block";
+                console.log("OK");
+            }
+        }
+    } else {
+        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
+            let allTR = tab.querySelectorAll("tr");
+            let allTD = allTR[index].querySelectorAll("td");
+            let searchedPerson = allTD[3].innerText; // index : 3
+            let searchedProject = allTD[0].innerText; // index : 0
+            //   console.log("-----" + allTR[index].querySelectorAll("td"));
+            allTR[index].style.display = "none";
+            if (searchedPerson === interventionsOfSelected && searchedProject === currentProjectSelected) {
+                console.log(searchedPerson + " + " + searchedProject);
+                allTR[index].style.display = "block";
+                console.log("OK");
+            }
+
+        }
     }
 }
 
@@ -159,3 +287,4 @@ for (let index = 1; index < dataProject.length; index++) {
                     </ul>
                 </div>
 */
+

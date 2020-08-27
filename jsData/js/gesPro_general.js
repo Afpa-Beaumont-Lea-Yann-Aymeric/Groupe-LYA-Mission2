@@ -115,47 +115,23 @@ for (let index = 1; index < dataProject.length; index++) {
 
 }
 
-// ajouter des scrum masters au tableau listOfProjectsAndClients OK
+// ajouter selon les métiers au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Scrum Master", 2);
-
-// ajouter des développeurs au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Développeur", 3);
-
-// ajouter des responsables des études au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Responsable Etude", 4);
-
-// ajouter des commerciaux au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Commercial", 5);
-
-// ajouter des Technicien support au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Technicien support", 6);
-
-// ajouter des Technico-commercial au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Technico-commercial", 7);
-
-// ajouter des secrétaires au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Secrétaire", 8);
 
-// ajouter les scrums master au tableau datatProject OK
-LPACtoDatatProject(2, 4);
-
-// ajouter les développeurs au tableau datatProject OK
-LPACtoDatatProject(3, 5);
-
-// ajouter les responsables des études au tableau datatProject OK
-LPACtoDatatProject(4, 6);
-
-// ajouter les commerciaux au tableau datatProject OK
-LPACtoDatatProject(5, 7);
-
-// ajouter les techniciens support au tableau datatProject OK
-LPACtoDatatProject(6, 8);
-
-// ajouter les technico commerciaux au tableau datatProject OK
-LPACtoDatatProject(7, 9);
-
-// ajouter les secrétaires au tableau datatProject OK
-LPACtoDatatProject(8, 10);
+// ajouter selon les métiers au tableau datatProject OK
+LPACtoDatatProject(2, 4); // scrums master
+LPACtoDatatProject(3, 5); // développeurs
+LPACtoDatatProject(4, 6); // responsables des études
+LPACtoDatatProject(5, 7); // commerciaux
+LPACtoDatatProject(6, 8); // techniciens support
+LPACtoDatatProject(7, 9); // technico commerciaux
+LPACtoDatatProject(8, 10); // secrétaires
 
 
 /* -------------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" -------------- */
