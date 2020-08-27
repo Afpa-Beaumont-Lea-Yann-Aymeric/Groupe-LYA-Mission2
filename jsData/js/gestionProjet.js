@@ -7,7 +7,7 @@
 
 /* ------------------------------  variables page gestion de projets ------------------------------ */
 
-
+console.table(dataProject);
 
 /* ------------------------------  traitement ------------------------------ */
 
@@ -16,6 +16,11 @@
 let tab = document.getElementsByTagName("tbody")[0];
 for (let index = 1; index < dataProject.length; index++) {
     let row = document.createElement("tr");
+    let row2 = document.createElement("tr");
+    let cellInfo = document.createElement("td");
+    let infoId = (dataProject[0][0] + " : " + dataProject[index][0]);
+    let infoScrumMaster = (dataProject[0][4] + " " + dataProject[index][4]);
+    let textInCellInfo = document.createTextNode(infoId + " " + infoScrumMaster);
     for (let index2 = 0; index2 < 5; index2++) {
         let cell = document.createElement("td");
         let textInCell = "string";
@@ -32,8 +37,32 @@ for (let index = 1; index < dataProject.length; index++) {
         }
         cell.appendChild(textInCell);
         row.appendChild(cell);
-    }    
+    }   
     tab.appendChild(row);
+    
+    cellInfo.colSpan = "5";
+    cellInfo.appendChild(textInCellInfo);
+    row2.appendChild(cellInfo);
+    tab.appendChild(row2);
+    row2.style.display = "none";
+    row.addEventListener('click',  () => {
+        if (row2.style.display === "block") {
+            row2.style.display = "none";
+            row.style.backgroundColor = "inherit";
+            row.style.color = "black";
+        } else {
+                    row2.style.display = "block";
+                    
+                    row.style.backgroundColor = "blueviolet";
+                    row.style.color = "whitesmoke";
+
+        }
+    });
+    row2.addEventListener('click', () => {
+        row2.style.display = "none";
+    });
+    row2.style.backgroundColor = "blueviolet";
+    row2.style.color = "whitesmoke";
 }
 
 
