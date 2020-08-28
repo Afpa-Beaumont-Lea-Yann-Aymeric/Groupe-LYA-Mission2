@@ -18,9 +18,9 @@ let comment = document.getElementById("comment");
 
 /** @type {object} bouton de soummission du formulaire, utilisé par la secrétaire technique, concernant la création d'une nouvelle intervention. */
 let submitForm = document.getElementById("submitForm");
-/*
-console.table(dataProject);
- ----------------------------------------  traitement ---------------------------------------- */
+
+
+/* ----------------------------------------  traitement ---------------------------------------- */
 
 addOptionInScrollingMenu(dataProject, currentUserStory, 3);
 

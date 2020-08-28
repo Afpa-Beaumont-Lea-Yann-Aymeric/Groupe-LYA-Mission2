@@ -5,18 +5,24 @@
  */
 
 
-/* ------------------------------  variables page gestion de projets ------------------------------ 
+/* ------------------------------  variables page gestion de projets ------------------------------ */
 
-console.table(dataProject);
-*/
+
 /* ------------------------------  traitement ------------------------------ */
 
 /* -----  afficher le tableau des interventions des développeurs ----- */
+
+
 /** @type {object} corps du tableau de la page HTML "gestionProjet"*/
 let tab = document.getElementsByTagName("tbody")[0];
 for (let index = 1; index < dataProject.length; index++) {
+    /** @type {string} couleur des lignes du tableau (de la page gestion de projets) donnant des détails sur les interventions des développeurs */
+    let colorOfHiddenRow = "rgba(137, 43, 226, 0.85)";
+    /** @type {objet} correspond à la ligne de résumé de l'intervention d'un développeur sur un projet / une user story */
     let row = document.createElement("tr");
+    /** @type {objet} correspond à la première ligne des détails concernant l'intervention d'un developpeur sur une projet / une user story */
     let row2 = document.createElement("tr");
+    /** @type {objet} correspond à la seconde ligne de details concernant l'intervention d'un développeur sur un projet / une user story */
     let row3 = document.createElement("tr");
     for (let index2 = 0; index2 < 5; index2++) {
         let cell = document.createElement("td");
@@ -67,10 +73,9 @@ for (let index = 1; index < dataProject.length; index++) {
     });
 
     row.addEventListener("mouseleave", () => {
-        row.style.boxShadow = "none";
         row.style.backgroundColor = "inherit";
         row.style.color = "inherit";
-        if (row2.style.display === "block") {
+        if (row2.style.display === "table-row") {
             row.style.backgroundColor = "blueviolet";
             row.style.color = "whitesmoke";
         }
@@ -79,14 +84,14 @@ for (let index = 1; index < dataProject.length; index++) {
 
 
     row.addEventListener('click',  () => {
-        if (row2.style.display === "block") {
+        if (row2.style.display === "table-row") {
             row2.style.display = "none";
             row3.style.display = "none";
             row.style.backgroundColor = "inherit";
             row.style.color = "black";
         } else {
-            row2.style.display = "block";
-            row3.style.display = "block";
+            row2.style.display = "table-row";
+            row3.style.display = "table-row";
             row.style.backgroundColor = "blueviolet";
             row.style.color = "whitesmoke";
         }
@@ -106,54 +111,16 @@ for (let index = 1; index < dataProject.length; index++) {
     });
 
 
-    row2.style.backgroundColor = "blueviolet";
+    row2.style.backgroundColor = colorOfHiddenRow;
     row2.style.color = "whitesmoke";
-    row3.style.backgroundColor = "blueviolet";
+    row3.style.backgroundColor = colorOfHiddenRow;
     row3.style.color = "whitesmoke";
 }
 
 
-
-
-
-
-/*
-interventionsOf.addEventListener("change", () => { // indexOfCellForSearch 3
-    
-    let optionSelected = interventionsOf.value;
-    if (optionSelected === interventionsOf[0].value) {
-        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
-            let allTR = tab.querySelectorAll("tr");
-            console.log("----- affiche tout " + allTR[index]);
-            allTR[index].style.display = "block";
-        }
-        
-    } else {
-        
-        for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
-            let allTR = tab.querySelectorAll("tr");
-            let allTD = allTR[index].querySelectorAll("td");
-            let searchedOption = allTD[3].innerText; // index : 3
-            allTR[index].style.display = "block";
-            console.log("-----" + allTR[index].querySelectorAll("td"));
-            if (searchedOption === optionSelected) {
-                allTR[index].style.display = "none";
-                console.log("OK");
-            }
-        }
-    }
-
-});
-
-*/
-
 currentProject.addEventListener("change", menuSelected);
 interventionsOf.addEventListener("change", menuSelected);
-/*
-menuSelected(interventionsOf, 3);
 
-menuSelected(currentProject, 0);
-*/
 
 /* ------------------------------  fonctions ------------------------------ */
 
@@ -171,72 +138,39 @@ menuSelected(currentProject, 0);
 
 
 
+
 /**
  * @function menuSelected()
- * @description fonction pour trier le tableau HTML selon les éléments séléctionnés dans le menu déroulant.
- * @param {string} menu fait référence au menu qui servira à laire le tri.
- * @param {*} indexOfCellForSearch indique l'index de colonne (du tableau HTML) sur lequel le tri sera fait.
+ * @description fonction pour trier les données affichées dans le tableau de la page gestion de projets, selon les options délectionnées dans les menus déroulants.
  */
-/*
-function menuSelected(menu, indexOfCellForSearch) {
-    
-    menu.addEventListener("change", () => {
-        let optionSelected = menu.value;
-        if (optionSelected === menu[0].value) { // afficher tout
-            for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
-                let allTR = tab.querySelectorAll("tr");
-                console.log("----- affiche tout " + allTR[index]);
-                allTR[index].style.display = "block";
-            }
-        } else {
-            for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
-                let allTR = tab.querySelectorAll("tr");
-                let allTD = allTR[index].querySelectorAll("td");
-                let searchedOption = allTD[indexOfCellForSearch].innerText; // index : 3
-                console.log("-----" + allTR[index].querySelectorAll("td"));
-                allTR[index].style.display = "none";
-                if (searchedOption === optionSelected) {
-                    allTR[index].style.display = "block";
-                    console.log("OK");
-                }
-            }
-        }
-    });
-}
-*/
 function menuSelected() {
-    
+    /** @type {string} correspond au contenu sélectionné dans le menu déroulant "développeurs". */
     let interventionsOfSelected = interventionsOf.value;
+    /** @type {string} correspond au contenu sélectionné dans le menu déroulant "projets". */
     let currentProjectSelected = currentProject.value;
-    console.log("---------------------");
-    console.log(interventionsOfSelected);
-    console.log(currentProjectSelected);
     if (currentProjectSelected === currentProject[0].value && interventionsOfSelected === interventionsOf[0].value) { // afficher tout
         for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
             let allTR = tab.querySelectorAll("tr");
-            allTR[index].style.display = "block";
+            allTR[index].style.display = "table-row";
         }
-        console.log("----- affiche tout ");
-    } else if (currentProjectSelected === currentProject[0].value && interventionsOfSelected != interventionsOf[0].value) {
+    } else if (currentProjectSelected === currentProject[0].value && interventionsOfSelected != interventionsOf[0].value) { // afficher tous les projets du développeur selectionné dans le menu déroulant
         for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
             let allTR = tab.querySelectorAll("tr");
             let allTD = allTR[index].querySelectorAll("td");
             let searchedPerson = allTD[3].innerText; // index : 3
             allTR[index].style.display = "none";
             if (searchedPerson === interventionsOfSelected) {
-                allTR[index].style.display = "block";
-                console.log("OK");
+                allTR[index].style.display = "table-row";
             }
         }
-    } else if (currentProjectSelected != currentProject[0].value && interventionsOfSelected === interventionsOf[0].value) {
+    } else if (currentProjectSelected != currentProject[0].value && interventionsOfSelected === interventionsOf[0].value) { // afficher toutes les interventions des développeurs selon un projet
         for (let index = 0; index < (dataProject.length - 1) * 3; index = index + 3) {
             let allTR = tab.querySelectorAll("tr");
             let allTD = allTR[index].querySelectorAll("td");
             let searchedProject = allTD[0].innerText; // index : 0
             allTR[index].style.display = "none";
             if (searchedProject === currentProjectSelected) {
-                allTR[index].style.display = "block";
-                console.log("OK");
+                allTR[index].style.display = "table-row";
             }
         }
     } else {
@@ -245,46 +179,10 @@ function menuSelected() {
             let allTD = allTR[index].querySelectorAll("td");
             let searchedPerson = allTD[3].innerText; // index : 3
             let searchedProject = allTD[0].innerText; // index : 0
-            //   console.log("-----" + allTR[index].querySelectorAll("td"));
             allTR[index].style.display = "none";
             if (searchedPerson === interventionsOfSelected && searchedProject === currentProjectSelected) {
-                console.log(searchedPerson + " + " + searchedProject);
-                allTR[index].style.display = "block";
-                console.log("OK");
+                allTR[index].style.display = "table-row";
             }
-
         }
     }
 }
-
-
-
-
-/* 
-                    <ul>
-                        <li >ID : </li>
-                        <li>User Story : </li>
-                    </ul>
-                    <ul>
-                        <li >Sprint : </li>
-                        <li >Développeur pour cette User Story: </li>
-                        <li>Commentaire : </li> 
-                    </ul>
-                </div>
-                
-                <div id="teamInfo">
-                    <ul>
-                        <li>Client : </li>
-                        <li>Projet : </li>
-                    </ul>
-                    <ul>
-                        <li >Scrum Master : </li>
-                        <li >Responsable des études : </li>
-                        <li >Commercial : </li>
-                        <li >Technicien support : </li>
-                        <li >Technico commercial : </li>
-                        <li >Secrétaire : </li>
-                    </ul>
-                </div>
-*/
-
