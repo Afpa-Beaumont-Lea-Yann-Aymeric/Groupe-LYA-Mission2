@@ -4,12 +4,6 @@
  */
 
 /**
- * When a link with the class edit is clicked, change the row in edit mode
- * @event edit#click
- */
-
-
-/**
  *
  * @param {HTMLTableRowElement} trElement
  */
@@ -65,8 +59,8 @@ function editMode(trElement){
  * @param {HTMLTableRowElement} trElement
  */
 function staticMode(trElement){
-    for (let i = 0; i < row.children("td").length - 1; i++) {
-        let tdEq = row.children('td:eq(' + i + ')');
+    for (let i = 0; i < $(trElement).children("td").length - 1; i++) {
+        let tdEq = $(trElement).children('td:eq(' + i + ')');
         let value = tdEq.children('input, select').val();
         tdEq.html(value);
     }
@@ -76,18 +70,15 @@ function staticMode(trElement){
 }
 
 /**
- * When a link with the class remove is clicked, remove the row
- * @event remove#click
+ * Ask a confirmation and remove the row if the user click on confirm
+ * @param {HTMLTableRowElement} trElement
  */
-$(".remove").click(function () {
-    let tdActions = $(this).parent();
-    let row = tdActions.parent();
-    let firstName = row.children('td:eq(0)').html();
-    let lastName = row.children('td:eq(1)').html();
+function removeRow(trElement){
+    let firstName = $(trElement).children('.firstName').text();
+    let lastName = $(trElement).children('.lastName').text();
     let remove = confirm('Voulez-vous supprimer le collaborateur ' + firstName + ' ' + lastName + '?');
     if (remove) {
-        let tdActions = $(this).parent();
-        let row = tdActions.parent();
-        row.remove();
+        $(trElement).remove();
     }
-})
+}
+

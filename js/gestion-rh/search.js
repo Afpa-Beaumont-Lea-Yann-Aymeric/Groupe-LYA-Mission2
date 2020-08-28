@@ -4,15 +4,23 @@
  */
 
 
-function getCollaboratorsToShow(){
-let collaboratorsToShow = [];
+/**
+ * Get the collaborators to show depending of the search value
+ * @return {[]} - The array of colloborators to show
+ */
+function getCollaboratorsToShow() {
+    let arraySearch = search.split(" ");
+    let collaboratorsToShow = [];
     collaborators.forEach(function (collaborator, i) {
         let match = false;
-        for (let property in collaborator) {
-            if (collaborator[property].toLowerCase().search(search.toLowerCase()) !== -1) {
-                match = true;
+        arraySearch.forEach(function (search) {
+            for (let property in collaborator) {
+                if (collaborator[property].toLowerCase().search(search.toLowerCase()) !== -1) {
+                    match = true;
+                }
             }
-        }
+
+        })
         if (match) {
             collaboratorsToShow.push(collaborator);
         }

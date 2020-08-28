@@ -27,7 +27,6 @@ $(document).ready(function () {
     $("input[name=q]").val(search);
 
     collaboratorsToShow = getCollaboratorsToShow();
-    console.log(collaboratorsToShow);
     nbPages = Math.ceil(collaboratorsToShow.length / collabPerPage);
     sortCollaborator(sortBy, order);
 
@@ -42,15 +41,18 @@ $(document).ready(function () {
     showCollaborators(start, end);
 
     $(".edit").click(function () {
-        editMode($(this).parent("td").parent("tr"));
+        let tr = $(this).parent("td").parent("tr");
+        editMode(tr);
     })
 
     $(".valid").click(function () {
-        staticMode($(this).parent("td").parent("tr"));
+        let tr = $(this).parent("td").parent("tr");
+        staticMode(tr);
     })
 
     $(".remove").click(function () {
-        removeRow($(this).parent("td").parent("tr"));
+        let tr = $(this).parent("td").parent("tr");
+        removeRow(tr);
     })
 
     $("#listCollab tbody tr td:not(:last-child)").hover(function () {
