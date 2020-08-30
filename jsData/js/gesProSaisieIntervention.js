@@ -25,23 +25,13 @@ let submitForm = document.getElementById("submitForm");
 addOptionInScrollingMenu(dataProject, currentUserStory, 3);
 
 submitForm.addEventListener('click', () => {
-    let regex = /[<>/{}]/gi;
+    /** @type {string} indique les caratères interdits, qui seront supprimés lors de l'envoi du formulaire. */
+    let regex = /[<>{}]/gi;
     if (regex.test(comment.value) === true) {
-        console.log("suppression des caratères interdits");
         comment.value = comment.value.replace(regex, "");
     }
-    console.log(comment.value);
 });
 
-
-
-/* -----  transfert des données du formulaire vers une page test ----- */
-/* 
-1. écouter bouton d'envoi
-2. recuperer les données de formulaire
-3. envoi a la page test
-
-*/
 
 /* --------------------------------------  fonctions -------------------------------------- */
 
