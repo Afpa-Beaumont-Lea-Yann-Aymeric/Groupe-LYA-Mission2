@@ -14,7 +14,7 @@
 let workAs = document.getElementById("workAs").innerText;
 
 /** @type {object} définit les éléments visible pour tous les utilisateurs connectés. */
-let viewByUser = document.getElementsByClassName("viewByUser"); 
+let viewByUser = document.getElementsByClassName("viewByUser");
 
 /** @type {object} définit les éléments visibles pour les responsables des études. */
 let viewByRespEd = document.getElementsByClassName("viewByRespEd");
@@ -31,11 +31,8 @@ let interventionsOf = document.getElementById("interventionsOf");
 /** @type {object}  liste déroulante : sélection du projet, par la secretaire technique, concernant la création d'une nouvelle intervention. */
 let currentProject = document.getElementById("currentProject");
 
-let test = document.getElementById("test");
 
-
-/* ------------------------------  traitement ------------------------------ 
-
+/* ------------------------------  traitement ------------------------------
 if (optionDevList.value === "Bernard Françoise") {
     currentProject.display = "none";
 }*/
@@ -63,10 +60,12 @@ if (workAs === "Développeur") {
 }
 
 /* ---------------------------------------- simulation de base de données Projets ABI ---------------------------------------- */
-let dataProject = [["ID",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
+/** @type {object} est un tableau réunissant toutes les données issues des fichiers "collaborateurs", "projets" et "clients", pour simuler une base de données. */
+let dataProject = [["Release",	"Nom du projet",	"Client",	"User Story",	"Scrum Master",	"Développeur",	"Responsable des études",	"Commercial",	"Technicien support",	"Technico-commercial",	"Secrétaire",	"Sprint",	"Commentaire"]];
+/** @type {object} est un tableau intermédiaire à la constitution du tableau "dataProject". Ce tableau permet l'organisation des données issues des fichier "collaborateurs" et "clients". */
 let listOfProjectsAndClients = [["Nom du projet", "Client", "Scrum Master", "Développeur", "Responsable des études", "Commercial", "Technicien support", "Technico-commercial", "Secrétaire"]];
 
-// remplir le tableau de simulation de BDD OK
+// remplir le tableau de simulation de BDD
 for (let index = 0; index < projets.length; index++) {
     let moveIdUserStory = projets[index].IdUserStory;
     let moveProjectName = projets[index].projet;
@@ -90,15 +89,15 @@ for (let index = 1; index < listOfProjectsAndClients.length; index++) {
             listOfProjectsAndClients.splice([index2], 1);
             index -= 1;
         }
-    }    
+    }
 }
 
-// ajouter des clients au tableau listOfProjectsAndClients OK
+// ajouter des clients au tableau listOfProjectsAndClients
 for (let index = 1; index < listOfProjectsAndClients.length; index++) {
     listOfProjectsAndClients[index][1] = clients[index].raisonSociale;
 }
-    
-// ajouter les clients au tableau dataProject OK
+
+// ajouter les clients au tableau dataProject
 for (let index = 1; index < dataProject.length; index++) {
     let index2 = 0;
     let flagPass = false;
@@ -115,47 +114,23 @@ for (let index = 1; index < dataProject.length; index++) {
 
 }
 
-// ajouter des scrum masters au tableau listOfProjectsAndClients OK
+// ajout selon les métiers au tableau listOfProjectsAndClients
 addCollabInLPAC("Scrum Master", 2);
-
-// ajouter des développeurs au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Développeur", 3);
-
-// ajouter des responsables des études au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Responsable Etude", 4);
-
-// ajouter des commerciaux au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Commercial", 5);
-
-// ajouter des Technicien support au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Technicien support", 6);
-
-// ajouter des Technico-commercial au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Technico-commercial", 7);
-
-// ajouter des secrétaires au tableau listOfProjectsAndClients OK
 addCollabInLPAC("Secrétaire", 8);
 
-// ajouter les scrums master au tableau datatProject OK
-LPACtoDatatProject(2, 4);
-
-// ajouter les développeurs au tableau datatProject OK
-LPACtoDatatProject(3, 5);
-
-// ajouter les responsables des études au tableau datatProject OK
-LPACtoDatatProject(4, 6);
-
-// ajouter les commerciaux au tableau datatProject OK
-LPACtoDatatProject(5, 7);
-
-// ajouter les techniciens support au tableau datatProject OK
-LPACtoDatatProject(6, 8);
-
-// ajouter les technico commerciaux au tableau datatProject OK
-LPACtoDatatProject(7, 9);
-
-// ajouter les secrétaires au tableau datatProject OK
-LPACtoDatatProject(8, 10);
+// ajout selon les métiers au tableau datatProject
+LPACtoDataProject(2, 4); // scrums master
+LPACtoDataProject(3, 5); // développeurs
+LPACtoDataProject(4, 6); // responsables des études
+LPACtoDataProject(5, 7); // commerciaux
+LPACtoDataProject(6, 8); // techniciens support
+LPACtoDataProject(7, 9); // technico commerciaux
+LPACtoDataProject(8, 10); // secrétaires
 
 
 /* -------------- remplir le menu deroulant collaborateur à partir du fichier "collaborateurs.js" -------------- */
@@ -180,13 +155,13 @@ for (let index = 0; index < collaborateurs.length; index++) {
 
         /** @type {boolean} drapeau permettant d'indiquer si la variable itemToMove à trouvé sa place dans la liste d'options du menu déroulant. */
         let flagCorrectlyPlaced = false;
-        
+
         /** @type {string} variable contenant la valeur d'une option du menu déroulant. après son initialisation, le noeud HTML dont cette variable est originaire est trié et déplacé. */
         let itemToMove = optionDevList[indexOfNewOption].value;
-        
+
         /** @type {string} variable contenant la valeur d'une option du menu déroulant. cette variable sert à trier le menu d'options et correspond au noeud HTML précédent le noeud HTML itemToMove. */
         let itemToCompare = optionDevList[indexOfNewOption-1].value;
-        
+
         newDev.innerText = developerName; // innerText pour ne pas echapper les balises html, comme ca , si qqn veut inserer des balises c'est inefficace et ca se voit
         newDev.value = developerName;
         itemToMove = optionDevList[indexOfNewOption].value;
@@ -203,9 +178,9 @@ for (let index = 0; index < collaborateurs.length; index++) {
             } else {
                 flagCorrectlyPlaced = true;
                 optionDevList = interventionsOf.querySelectorAll("option");
-            }    
+            }
         }
-    }    
+    }
 }
 
 
@@ -217,7 +192,7 @@ addOptionInScrollingMenu(listOfProjectsAndClients, currentProject, 0)
 /* ------------------------------ fonctions ------------------------------ */
 
 /**
- * @function allByView() 
+ * @function allByView()
  * @description fonction pour accéder à toutes les données du tableau généré par getElementsByClassName(), pour le paramètre / la variable utilisée par cette fonction.
  * @param {String} viewBy fait référence à variable/élément à afficher ou cacher.
  * @param {String} viewOrHidden fait référence au statut "affiché" ou "caché" désiré pour de l'élément.
@@ -245,24 +220,24 @@ function addCollabInLPAC(searchedFunction, columnInLPAC) {
             let nom = collaborateurs[i2].nomCollabo + " " + collaborateurs[i2].prenomCollabo;
             listOfProjectsAndClients[i][columnInLPAC] = nom;
             i += 1;
-            i2 += 1;            
-        } else {        
+            i2 += 1;
+        } else {
             i2 += 1;
         }
         if (i2 >= collaborateurs.length) {
-            i2 = 0;            
-        }  
-    }  
+            i2 = 0;
+        }
+    }
 
 }
 
 /**
- * @function LPACtoDatatProject
+ * @function LPACtoDataProject
  * @description fonction pour remplir le tableau "dataProject" depuis le tableau "listOfProjectAndClients".
  * @param {number} columnInLPAC numéro de la colonne dans le tableau "listOfProjectsAndClients" dont les données vont être copiées dans le tableau "dataProject".
  * @param {*} columnInDataProject numéro de la colonne dans le tableau "dataProject" qui va recevoir les données copiées depuis le tableau "listOfProjectsAndClients".
  */
-function LPACtoDatatProject(columnInLPAC, columnInDataProject){
+function LPACtoDataProject(columnInLPAC, columnInDataProject){
     /** @type {number} index d'objet dans le tableau "dataProject". */ // tableau à remplir
     let i = 1;
     /** @type {number} index de ligne dans le tableau "listOfProjectsAndClients". */ // tableau de données
@@ -272,8 +247,8 @@ function LPACtoDatatProject(columnInLPAC, columnInDataProject){
         i += 1;
         i2 += 1;
         if (i2 >= listOfProjectsAndClients.length) {
-            i2 = 1;            
-        }  
+            i2 = 1;
+        }
     }
 }
 
@@ -293,6 +268,7 @@ function addOptionInScrollingMenu(tab, menu, columnInTab) {
         let indexOfItem = 0;
 
         option.textContent = tab[index][columnInTab];
+        option.value = tab[index][columnInTab];
         menu.appendChild(option);
         indexOfItem = menu.length - 1;
 

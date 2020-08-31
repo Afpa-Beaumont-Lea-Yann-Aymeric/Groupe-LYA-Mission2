@@ -45,9 +45,9 @@
             </ul>
         </div>
     </div>
-
     <div class="text-white">
         Eric Dupont - <span id="workAs">Responsable des études</span><br/>
+        <a href="gestion-projet-saisie-intervention.html">Se connecter en tant que secrétaire</a><br/>
         <a href="deconnexion.html">Déconnexion</a>
     </div>
 
@@ -65,18 +65,18 @@
                 <li class="nav-item viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-folder-plus"></i> Nouveau projet</a></li><!-- lien vers creation d'un nouveau projet -->
                 <li class="nav-item viewBySecTec"><a class="nav-link" href="gestion-projet-saisie-intervention.html"><i class="fas fa-pen-square"></i> Nouvelle intervention</a></li> <!-- lien vers saisie d'une nouvelle intervention pour un collaborateur -->
                 <li class="nav-item viewByDev viewByRespEd"><a class="nav-link" href="#"><i class="fas fa-file-import"></i> Nouveau document</a></li> <!-- lien vers creation d'un nouveau document et attribution a un collaborateur -->
-                <!-- 
-                Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>> 
-                Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>> 
-                Lister les interventions d'un collaborateur >>> Responsable des études ou développeur >>> VOIR collaborateur + intervention >>> 
-                Ajouter un document émis par moi >>> Développeur  >>> AJOUT document + pers-connectée >>> 
-                Ajouter un document d'un collaborateur >>> Responsable des études  >>> AJOUT document + nom-collaborateur >>> 
-                Consulter l'activité d'un collaborateur >>> Utilisateur  >>> VOIR collaborateur + intervention >>> 
-                Consulter l'avancement d'un projet >>> Utilisateur  >>> VOIR projet >>> 
-                Consulter un document associé à un projet >>> Utilisateur  >>> VOIR projet + document >>> 
-                Saisir les interventions hebdomadaires des collaborateurs >>> Secrétariat technique  >>> VOIR projet + edition >>> 
-                Consulter l'activité d'un collaborateur >>> Responsable des études  >>> VOIR collaborateur + intervention >>> 
-                Création d'un projet >>> Responsable des études  >>> AJOUT nouveau projet  >>> 
+                <!--
+                Lister les documents provenant d'un collaborateur >>> Utilisateur >>> VOIR  collaborateur + document >>>
+                Lister les documents associés à un projet >>> Utilisateur >>>  VOIR projet + document >>>
+                Lister les interventions d'un collaborateur >>> Responsable des études ou développeur >>> VOIR collaborateur + intervention >>>
+                Ajouter un document émis par moi >>> Développeur  >>> AJOUT document + pers-connectée >>>
+                Ajouter un document d'un collaborateur >>> Responsable des études  >>> AJOUT document + nom-collaborateur >>>
+                Consulter l'activité d'un collaborateur >>> Utilisateur  >>> VOIR collaborateur + intervention >>>
+                Consulter l'avancement d'un projet >>> Utilisateur  >>> VOIR projet >>>
+                Consulter un document associé à un projet >>> Utilisateur  >>> VOIR projet + document >>>
+                Saisir les interventions hebdomadaires des collaborateurs >>> Secrétariat technique  >>> VOIR projet + edition >>>
+                Consulter l'activité d'un collaborateur >>> Responsable des études  >>> VOIR collaborateur + intervention >>>
+                Création d'un projet >>> Responsable des études  >>> AJOUT nouveau projet  >>>
                 -->
             </ul>
         </nav>
@@ -88,11 +88,11 @@
                     <div class="form-inline">
                         <select class="form-control shadow-lg" name="showInterventionsOf" id="interventionsOf" tabindex="1">
                             <option value="Tous les développeurs" selected="selected">Tous les développeurs</option>
-                        </select>    
+                        </select>
                     </div>
                     <div class="form-inline">
                         <select class="form-control shadow-lg" id="currentProject">
-                            <option value="currentProject" selected="selected">Tous les projets</option>
+                            <option value="Tous les projets" selected="selected">Tous les projets</option>
                         </select>
                     </div>
 
@@ -108,70 +108,34 @@
                             <option value="autre">Autre</option>
                         </select>
                     </div>
-
-
                 </form>
-
-                
-
-                
-
             </section>
-            <table class="table table-hover" >
+            <table class="table">
                 <a href="#">
-                <thead id="tableOfInterventions">
+                    <thead id="tableOfInterventions">
                     <tr>
-                        <th class="text-center" colspan="13">base de donnée des projets ABI</th>
+                        <th class="text-center" colspan="5">Les projets ABI</th>
                     </tr>
-                    <tr class="table-primary">
-                        <th class="text-center">Nom du projet</th>
-                        <th class="text-center">Client</th>
-                        <th class="text-center">User Story</th>
-                        <th class="text-center">Développeur</th>
-                        <th class="text-center">Sprint</th>
+                    <tr  class="table-primary">
+                        <th class="text-center" colspan="1">Nom du projet</th>
+                        <th class="text-center" colspan="1">Release</th>
+                        <th class="text-center" colspan="1">User Story</th>
+                        <th class="text-center" colspan="1">Développeur</th>
+                        <th class="text-center" colspan="1">Sprint</th>
                     </tr>
-                </thead></a>
+                    </thead></a>
                 <tbody>
                 </tbody>
-                
-            </table>
-            <section class="alert alert-primary" id="moreDetail">
-                <div id="interventionDetail">
-                    <ul>
-                        <li >ID : </li>
-                        <li>User Story : </li>
-                    </ul>
-                    <ul>
-                        <li >Sprint : </li>
-                        <li >Développeur pour cette User Story: </li>
-                        <li>Commentaire : </li> 
-                    </ul>
-                </div>
-                
-                <div id="teamInfo">
-                    <ul>
-                        <li>Client : </li>
-                        <li>Projet : </li>
-                    </ul>
-                    <ul>
-                        <li >Scrum Master : </li>
-                        <li >Responsable des études : </li>
-                        <li >Commercial : </li>
-                        <li >Technicien support : </li>
-                        <li >Technico commercial : </li>
-                        <li >Secrétaire : </li>
-                    </ul>
-                </div>
-                
 
-            </section>
+            </table>
+            <div id="infobulle">
+                <p>Cliquez sur un projet pour plus de détails.</p>
+            </div>
         </div>
     </div>
 
 
 </main>
-
-
 <footer class="text-white bg-midnightblue">
     <div class="container text-center text-md-left">
         <div class="row text-center">
@@ -191,9 +155,13 @@
         <a href="index.html"> Active Bretagne Informatique</a>
     </div>
 </footer>
+
+<!-- bootstrap -->
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<!-- autres -->
 <script src="data/clients.js"></script>
 <script src="data/collaborateurs.js"></script>
 <script src="data/projets.js"></script>

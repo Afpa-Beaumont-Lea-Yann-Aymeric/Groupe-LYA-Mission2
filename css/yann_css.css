@@ -3,6 +3,11 @@ html {
 }
 
 
+body {
+    color: rgb(25, 25, 110);
+}
+
+
 img {
     height: 50px;
     filter: opacity(0.8);
@@ -29,17 +34,42 @@ section, h2 {
     flex-grow: 1;
 }
 
+.table {
+    table-layout: fixed;
+    width: 100%;
+    color: rgb(25, 25, 110);
+}
+
+th {
+    font-size: 1.1em;
+}
+
+#infobulle {
+    color: whitesmoke;
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+
+    top: 150px;
+    left: 200px;
+    right: 200px;
+    background-color: royalblue;
+    border-radius: 7px;
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 7px;
+    font-style: oblique;
+    font-weight: bolder;
+    display: none;
+
+}
+
+table tbody tr:hover{
+    cursor:pointer;
+}
 
 
 /*
-
-
-
-
-
 Icons made by <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
 Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
-
 */

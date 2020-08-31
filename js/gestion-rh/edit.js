@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * Change the row in edit mode
  * @param {HTMLTableRowElement} trElement
  */
 function editMode(trElement){
